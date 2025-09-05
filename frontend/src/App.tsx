@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { lazy, Suspense, Component } from "react";
+import type { ReactNode } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Lazy load LandingPage from src/pages
+const LandingPage = lazy(() => import("./public/LandingPage"));
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Error Boundary Component
+class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ textAlign: "center", padding: "100px" }}>
+          <h2>Something went wrong.</h2>
+          <p>Unable to load this page. Please try again later.</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
 }
 
-export default App
+// Main App Component
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Suspense fallback={<div style={{ textAlign: "center", padding: "100px" }}>Loading...</div>}>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            {/* Add more routes here later */}
+          </Routes>
+        </ErrorBoundary>
+      </Suspense>
+    </Router>
+  );
+};
+
+export default App;

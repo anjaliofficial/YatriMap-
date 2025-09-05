@@ -1,7 +1,10 @@
 import React from "react";
-import { motion, Variants, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import type { Variants } from "framer-motion";
+
 import { Link as ScrollLink } from "react-scroll";
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import "../css/LandingPage.css";
 
 // Trek Data
 interface Trek {

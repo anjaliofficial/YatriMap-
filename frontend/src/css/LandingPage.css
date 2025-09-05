@@ -2,64 +2,239 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 .landing-container {
-  scroll-behavior: smooth;
+  width: 100%;
 }
 
 /* Navbar */
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: orange;
+  border-radius: 50%;
+}
+
+.nav-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: orange;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-login {
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background: #f5f5f5;
+}
+
+.btn-signup {
+  padding: 0.5rem 1.2rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, orange, pink);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* Hero */
 .hero {
   position: relative;
+  text-align: center;
+  padding: 8rem 2rem;
   overflow: hidden;
 }
 
-.bg-hero-pattern {
-  background-image: url('/hero.jpg'); /* Replace with your hero image */
-  background-size: cover;
-  background-position: center;
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/hero.jpg') center/cover no-repeat;
+  z-index: 0;
 }
 
-/* Trek Cards */
-.trek-card {
-  transition: all 0.3s ease-in-out;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
 }
 
-/* Buttons */
-.btn-cta,
-.btn-primary {
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-cta {
+  padding: 0.8rem 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, orange, pink);
+  border: none;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 
-.btn-cta:hover,
-.btn-primary:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Footer */
-.footer a {
-  text-decoration: none;
+.scroll-circle {
+  width: 24px;
+  height: 24px;
+  border: 4px solid white;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: bounce 1.5s infinite;
 }
 
-.footer-bottom {
-  font-size: 0.875rem;
-  color: #6b7280; /* gray-500 */
-}
-
-/* Scroll Indicator Bounce */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(10px); }
 }
 
-.animate-bounce {
-  animation: bounce 1.5s infinite;
+/* Trek Cards */
+.treks-section {
+  padding: 6rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.treks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media(min-width: 768px) {
+  .treks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.trek-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.trek-card img {
+  width: 100%;
+  display: block;
+}
+
+.trek-content {
+  padding: 1rem;
+}
+
+.trek-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.trek-content p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  background: #f5f5f5;
+  padding: 4rem 2rem;
+  text-align: left;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.footer-section ul li:hover {
+  color: orange;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #555;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: orange;
+}
+
+@media(min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
