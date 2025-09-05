@@ -1,22 +1,3 @@
-/* =========================
-   Global Reset
-========================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-html, body, #root {
-  height: 100%;
-  width: 100%;
-  background: #f1faee;  /* light background */
-}
-
-/* =========================
-   Sign Up Container
-========================= */
 .signup-container {
   display: flex;
   justify-content: center;
@@ -34,28 +15,26 @@ html, body, #root {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(29,53,87,0.75);  /* overlay for readability */
+  background: rgba(29,53,87,0.75);
   z-index: 0;
 }
 
-/* =========================
-   Sign Up Card
-========================= */
 .signup-card {
   position: relative;
   z-index: 1;
   background: #fff;
-  border-radius: 15px;
-  padding: 40px 30px;
-  max-width: 400px;
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 500px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
 }
 
 .signup-card h2 {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: #1d3557;
+  font-size: 2rem;
 }
 
 .signup-card form {
@@ -64,22 +43,48 @@ html, body, #root {
   gap: 20px;
 }
 
-.signup-card input {
-  padding: 12px 15px;
-  border-radius: 8px;
+.signup-card input,
+.signup-card select {
+  padding: 14px 15px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
 }
 
-.signup-card input:focus {
+.signup-card input:focus,
+.signup-card select:focus {
   outline: none;
   border-color: #fca311;
   box-shadow: 0 0 5px rgba(252,163,17,0.5);
 }
 
+.gender-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.gender-group label {
+  font-size: 0.95rem;
+  color: #457b9d;
+  cursor: pointer;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #457b9d;
+}
+
+.terms span {
+  color: #fca311;
+  cursor: pointer;
+}
+
 .signup-card .btn-signup {
-  padding: 12px 20px;
-  font-size: 1rem;
+  padding: 14px 25px;
+  font-size: 1.1rem;
   border-radius: 30px;
   border: none;
   background: #fca311;
@@ -94,8 +99,8 @@ html, body, #root {
 }
 
 .signup-card p {
-  margin-top: 15px;
-  font-size: 0.9rem;
+  margin-top: 20px;
+  font-size: 0.95rem;
   color: #457b9d;
 }
 
@@ -103,7 +108,6 @@ html, body, #root {
   color: #fca311;
   cursor: pointer;
   font-weight: 600;
-  transition: color 0.3s;
 }
 
 .signup-card .login-link:hover {
