@@ -1,0 +1,262 @@
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1d14;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 29, 20, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo-icon {
+  width: 25px;
+  height: 25px;
+  background: #22c55e;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #22c55e;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.btn.primary {
+  background: #22c55e;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #1ca34e;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: white;
+}
+
+/* Hero */
+.hero {
+  background: url("/mountain-bg.jpg") center/cover no-repeat;
+  text-align: center;
+  padding: 150px 20px 100px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #cbd5e1;
+}
+
+/* Treks Section */
+.treks-section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.treks-section h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+.trek-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.trek-card {
+  background: #14281d;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+
+.trek-card:hover {
+  transform: translateY(-5px);
+}
+
+.trek-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  margin: 0;
+}
+
+.card-content p {
+  color: #9ca3af;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+  background: #0b1d14;
+  padding: 50px 20px;
+  border-top: 1px solid #1f2937;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer h4 {
+  margin-bottom: 10px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #9ca3af;
+}
+
+.footer li {
+  margin: 6px 0;
+}
+
+.socials span {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.socials span:hover {
+  color: #22c55e;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* --------------------------- */
+/* 📱 Responsive Styles */
+/* --------------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    display: none; /* hide menu links on mobile */
+  }
+
+  .auth-buttons {
+    display: none; /* hide login/signup on small screens */
+  }
+
+  .hero {
+    padding: 120px 20px 80px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .trek-card img {
+    height: 150px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 15px 60px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  .trek-card img {
+    height: 130px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+}
