@@ -1,7 +1,7 @@
 // src/pages/LoginPage.tsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "../css/Login.css";
+import "../css/LoginForgotPage.css";
 
 const LoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
