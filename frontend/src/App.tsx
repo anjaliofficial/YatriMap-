@@ -6,6 +6,10 @@ import type { ReactNode } from "react";
 // Lazy load LandingPage from src/pages
 const LandingPage = lazy(() => import("./public/LandingPage"));
 const Signup = lazy(() => import("./public/Signup"));
+const LoginPage = lazy(() => import("./public/LoginPage"));
+const ForgotPasswordPage = lazy(() => import("./public/ForgotPassword"));
+
+
 
 // Error Boundary Component
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -37,6 +41,9 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
+
 
             {/* Add more routes here later */}
           </Routes>

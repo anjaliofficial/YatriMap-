@@ -1,7 +1,6 @@
-// src/pages/LoginPage.tsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "../css/LoginForgotPage.css";
+import "../css/Signup.css"; // reuse the same CSS
 
 const LoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,12 +9,8 @@ const LoginPage: React.FC = () => {
     remember: false,
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const { name, value, type } = e.target;
-    const checked = type === "checkbox" ? (e.target as HTMLInputElement).checked : false;
-
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -25,13 +20,13 @@ const LoginPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login Data:", formData);
-    // API call for login
+    // API call here
   };
 
   return (
-    <div className="login-container">
+    <div className="signup-container">
       <motion.div
-        className="login-card"
+        className="signup-card"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -54,22 +49,30 @@ const LoginPage: React.FC = () => {
             onChange={handleChange}
             required
           />
-          <label className="remember">
+          <label className="terms">
             <input
               type="checkbox"
               name="remember"
               checked={formData.remember}
               onChange={handleChange}
-            />
+            />{" "}
             Remember Me
           </label>
-          <button type="submit" className="btn-login">Login</button>
+          <button type="submit" className="btn-signup">
+            Login
+          </button>
         </form>
         <p>
-          Forgot your password? <span className="forgot-link">Reset Here</span>
+          Forgot your password?{" "}
+          <span className="login-link" onClick={() => alert("Redirect to Forgot Password")}>
+            Reset Here
+          </span>
         </p>
         <p>
-          Don't have an account? <span className="signup-link">Sign Up</span>
+          Don't have an account?{" "}
+          <span className="login-link" onClick={() => alert("Redirect to Sign Up")}>
+            Sign Up
+          </span>
         </p>
       </motion.div>
     </div>
