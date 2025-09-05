@@ -342,7 +342,7 @@ html, body, #root {
    CTA Section (Centered & Distinct)
 ========================= */
 /* =========================
-   CTA Section (Subtle & Centered)
+   CTA Section (Elegant & Centered)
 ========================= */
 .cta-section {
   display: flex;
@@ -351,8 +351,8 @@ html, body, #root {
   align-items: center;      
   text-align: center;
   min-height: 60vh;         
-  background: #fca31133;  /* soft translucent yellow overlay */
-  color: #1d3557;          
+  background: #ffb703;      /* warm mustard, distinct from footer */
+  color: #1d3557;           /* dark text for contrast */
   padding: 40px 20px;      
 }
 
@@ -379,7 +379,7 @@ html, body, #root {
 }
 
 .cta-section .btn-cta:hover {
-  background: #000814;        
+  background: #14213d;        
   transform: translateY(-3px);
   box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }

@@ -1,0 +1,111 @@
+/* =========================
+   Global Reset
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background: #f1faee;  /* light background */
+}
+
+/* =========================
+   Sign Up Container
+========================= */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background: url('../assets/mountain_bg.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+.signup-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(29,53,87,0.75);  /* overlay for readability */
+  z-index: 0;
+}
+
+/* =========================
+   Sign Up Card
+========================= */
+.signup-card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 15px;
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.signup-card h2 {
+  margin-bottom: 25px;
+  color: #1d3557;
+}
+
+.signup-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signup-card input {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.signup-card input:focus {
+  outline: none;
+  border-color: #fca311;
+  box-shadow: 0 0 5px rgba(252,163,17,0.5);
+}
+
+.signup-card .btn-signup {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  background: #fca311;
+  color: #1d3557;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-card .btn-signup:hover {
+  background: #ffb703;
+}
+
+.signup-card p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #457b9d;
+}
+
+.signup-card .login-link {
+  color: #fca311;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.signup-card .login-link:hover {
+  color: #ffb703;
+}
