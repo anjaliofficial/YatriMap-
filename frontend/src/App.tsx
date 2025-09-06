@@ -8,6 +8,7 @@ const LandingPage = lazy(() => import("./public/LandingPage"));
 const Signup = lazy(() => import("./public/Signup"));
 const LoginPage = lazy(() => import("./public/LoginPage"));
 const ForgotPasswordPage = lazy(() => import("./public/ForgotPassword"));
+const Dashboard = lazy(() => import("./public/Dashboard"));
 
 
 
@@ -43,6 +44,8 @@ const App: React.FC = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+
 
 
             {/* Add more routes here later */}
