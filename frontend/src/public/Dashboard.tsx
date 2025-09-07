@@ -1,118 +1,170 @@
-import React from "react";
-import { motion } from "framer-motion";
-import {
-  Home,
-  Map,
-  MessageCircle,
-  Calendar,
-  Settings,
-  LogOut,
-  Bell,
-  Search,
-  User,
-} from "lucide-react";
+import React, { useState } from "react";
+import { FaUserCircle, FaSignOutAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { GiMountains, GiTrophy } from "react-icons/gi";
 import "../css/Dashboard.css";
 
 const Dashboard: React.FC = () => {
+  const [activeTrek, setActiveTrek] = useState<string | null>(null);
+
+  const treks = [
+    { name: "Poon Hill", difficulty: "Easy", duration: "3 days" },
+    { name: "Mardi Himal", difficulty: "Intermediate", duration: "5 days" },
+    { name: "Annapurna Circuit", difficulty: "Advanced", duration: "12 days" },
+  ];
+
+  const badges = [
+    { name: "100 km Hiked", icon: <GiTrophy /> },
+    { name: "5 Treks Completed", icon: <GiTrophy /> },
+    { name: "Elevation Master", icon: <GiTrophy /> },
+  ];
+
+  const notifications = [
+    "Weather alert: Snow on Annapurna Circuit",
+    "New AI trek recommendation available",
+    "Your Mardi Himal trek starts in 2 days",
+  ];
+
+  const handleTrekClick = (name: string) => {
+    setActiveTrek(name);
+    alert(`Showing details for ${name}`);
+  };
+
+  const handleLogout = () => {
+    console.log("User logged out");
+    // Add your logout logic here
+  };
+
   return (
     <div className="dashboard-container">
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <h2 className="logo">TrekNepal</h2>
-        <nav>
-          <ul>
-            <li><Home size={20} /> Home</li>
-            <li><Map size={20} /> Treks</li>
-            <li><MessageCircle size={20} /> Messages</li>
-            <li><Calendar size={20} /> Bookings</li>
-            <li><Settings size={20} /> Settings</li>
-            <li className="logout"><LogOut size={20} /> Logout</li>
-          </ul>
-        </nav>
-      </aside>
-
-      {/* Main Dashboard */}
-      <div className="main-dashboard">
-        {/* Top Navbar */}
-        <header className="topbar">
-          <div className="search-box">
-            <Search size={18} />
-            <input type="text" placeholder="Search..." />
+      {/* Navbar */}
+      <nav className="dashboard-navbar">
+        <div className="dashboard-logo">Trek Nepal</div>
+        <div className="dashboard-nav-right">
+          <div className="dashboard-profile">
+            <FaUserCircle className="profile-icon" />
+            <span className="profile-name">John Doe</span>
+            <button className="btn-logout" onClick={handleLogout}>
+              <FaSignOutAlt /> Logout
+            </button>
           </div>
-          <div className="topbar-icons">
-            <Bell size={22} className="icon" />
-            <User size={22} className="icon" />
-          </div>
-        </header>
+        </div>
+      </nav>
 
-        {/* Content */}
-        <motion.div
-          className="dashboard-content"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Welcome Banner */}
-          <div className="welcome-banner">
-            <h1>Welcome Back, Anjali 👋</h1>
-            <p>Here’s your trekking dashboard overview.</p>
-          </div>
+      {/* Hero Section */}
+      <section className="dashboard-hero">
+        <h1>Welcome Back, John!</h1>
+        <p>Plan your next adventure or check your stats</p>
+        <div className="hero-actions">
+          <button className="btn-action">Start New Trek</button>
+          <button className="btn-action">Upload GPX</button>
+          <button className="btn-action">View Stats</button>
+          <button className="btn-action">AI Recommendations</button>
+        </div>
+      </section>
 
-          {/* Stats Cards */}
-          <div className="stats-grid">
-            <div className="stat-card">
-              <h3>15</h3>
-              <p>Total Treks</p>
+      {/* Mini Stats */}
+      <section className="dashboard-stats">
+        <div className="stat-card">
+          <h3>Total Distance</h3>
+          <p>120 km</p>
+        </div>
+        <div className="stat-card">
+          <h3>Elevation Gain</h3>
+          <p>4500 m</p>
+        </div>
+        <div className="stat-card">
+          <h3>Completed Treks</h3>
+          <p>8</p>
+        </div>
+      </section>
+
+      {/* Map Placeholder */}
+      <section className="dashboard-map">
+        <h2>
+          <FaMapMarkerAlt /> Your Routes
+        </h2>
+        <div className="map-placeholder">Map will display here</div>
+      </section>
+
+      {/* AI Recommendations */}
+      <section className="dashboard-ai-treks">
+        <h2>AI Recommended Treks</h2>
+        <div className="ai-treks-carousel">
+          {treks.map((trek) => (
+            <div
+              key={trek.name}
+              className="ai-trek-card"
+              onClick={() => handleTrekClick(trek.name)}
+            >
+              <GiMountains className="trek-icon" />
+              <h3>{trek.name}</h3>
+              <p>{trek.difficulty}</p>
+              <p>{trek.duration}</p>
             </div>
-            <div className="stat-card">
-              <h3>8</h3>
-              <p>Upcoming Bookings</p>
+          ))}
+        </div>
+      </section>
+
+      {/* Achievements */}
+      <section className="dashboard-achievements">
+        <h2>Achievements & Badges</h2>
+        <div className="achievements-carousel">
+          {badges.map((badge) => (
+            <div key={badge.name} className="badge-card">
+              {badge.icon}
+              <p>{badge.name}</p>
             </div>
-            <div className="stat-card">
-              <h3>24</h3>
-              <p>Messages</p>
-            </div>
-            <div className="stat-card">
-              <h3>4.9 ★</h3>
-              <p>Avg. Rating</p>
+          ))}
+        </div>
+      </section>
+
+      {/* Notifications */}
+      <section className="dashboard-notifications">
+        <h2>Notifications</h2>
+        <ul>
+          {notifications.map((note, idx) => (
+            <li key={idx}>{note}</li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Footer */}
+      <footer className="dashboard-footer">
+        <div className="footer-grid">
+          <div className="footer-section">
+            <h4>Site Map</h4>
+            <ul>
+              <li>Home</li>
+              <li>Popular Treks</li>
+              <li>Testimonials</li>
+              <li>Get Started</li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4>Legal</h4>
+            <ul>
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li>Contact Us</li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4>Follow Us</h4>
+            <div className="social-icons">
+              <span className="icon">FB</span>
+              <span className="icon">IG</span>
+              <span className="icon">TW</span>
             </div>
           </div>
-
-          {/* Recent Activity + Chart */}
-          <div className="grid-2">
-            <div className="activity-section">
-              <h2>Recent Activity</h2>
-              <ul>
-                <li>📌 Booked Everest Base Camp Trek</li>
-                <li>💬 New message from Guide Sita</li>
-                <li>✅ Payment confirmed for Annapurna Circuit</li>
-              </ul>
-            </div>
-
-            <div className="chart-section">
-              <h2>Analytics</h2>
-              <p>[Insert Trekking Trends Chart here]</p>
-            </div>
-          </div>
-
-          {/* Profile */}
-          <div className="profile-section">
-            <h2>Your Profile</h2>
-            <div className="profile-card">
-              <img
-                src="https://i.pravatar.cc/100"
-                alt="profile"
-                className="profile-pic"
-              />
-              <div>
-                <h3>Anjali Bista</h3>
-                <p>Experienced Trekker</p>
-                <button className="btn-update">Update Profile</button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+        </div>
+        <p className="footer-bottom">© 2025 Trek Nepal. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
