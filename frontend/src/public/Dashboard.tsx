@@ -1,9 +1,11 @@
+// Dashboard.tsx
 import React, { useState } from "react";
 import { FaUserCircle, FaSignOutAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { GiMountains, GiTrophy } from "react-icons/gi";
 import "../css/Dashboard.css";
+import NavbarBeforeLogin from "../component/NavbarBeforeLogin"; // adjust path if needed
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
   const [activeTrek, setActiveTrek] = useState<string | null>(null);
 
   const treks = [
@@ -37,18 +39,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="dashboard-container">
       {/* Navbar */}
-      <nav className="dashboard-navbar">
-        <div className="dashboard-logo">Trek Nepal</div>
-        <div className="dashboard-nav-right">
-          <div className="dashboard-profile">
-            <FaUserCircle className="profile-icon" />
-            <span className="profile-name">John Doe</span>
-            <button className="btn-logout" onClick={handleLogout}>
-              <FaSignOutAlt /> Logout
-            </button>
-          </div>
-        </div>
-      </nav>
+      <NavbarBeforeLogin /> {/* replace the old inline navbar */}
 
       {/* Hero Section */}
       <section className="dashboard-hero">
