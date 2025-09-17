@@ -1,9 +1,10 @@
 // Dashboard.tsx
 import React, { useState } from "react";
-import { FaUserCircle, FaSignOutAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { GiMountains, GiTrophy } from "react-icons/gi";
 import "../css/Dashboard.css";
-import NavbarBeforeLogin from "../component/NavbarBeforeLogin"; // adjust path if needed
+import NavbarBeforeLogin from "../component/Navbar"; // adjust path if needed
+import Footer from "../component/Footer"; // import Footer
 
 const Dashboard = () => {
   const [activeTrek, setActiveTrek] = useState<string | null>(null);
@@ -31,15 +32,10 @@ const Dashboard = () => {
     alert(`Showing details for ${name}`);
   };
 
-  const handleLogout = () => {
-    console.log("User logged out");
-    // Add your logout logic here
-  };
-
   return (
     <div className="dashboard-container">
       {/* Navbar */}
-      <NavbarBeforeLogin /> {/* replace the old inline navbar */}
+      <NavbarBeforeLogin />
 
       {/* Hero Section */}
       <section className="dashboard-hero">
@@ -120,42 +116,7 @@ const Dashboard = () => {
       </section>
 
       {/* Footer */}
-      <footer className="dashboard-footer">
-        <div className="footer-grid">
-          <div className="footer-section">
-            <h4>Site Map</h4>
-            <ul>
-              <li>Home</li>
-              <li>Popular Treks</li>
-              <li>Testimonials</li>
-              <li>Get Started</li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>Legal</h4>
-            <ul>
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>Support</h4>
-            <ul>
-              <li>Contact Us</li>
-              <li>FAQ</li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>Follow Us</h4>
-            <div className="social-icons">
-              <span className="icon">FB</span>
-              <span className="icon">IG</span>
-              <span className="icon">TW</span>
-            </div>
-          </div>
-        </div>
-        <p className="footer-bottom">© 2025 Trek Nepal. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
