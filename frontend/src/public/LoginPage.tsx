@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // <-- import useNavigate
 import "../css/Signup.css"; // reuse the same CSS
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate(); // <-- initialize navigate
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -64,13 +67,19 @@ const LoginPage: React.FC = () => {
         </form>
         <p>
           Forgot your password?{" "}
-          <span className="login-link" onClick={() => alert("Redirect to Forgot Password")}>
+          <span
+            className="login-link"
+            onClick={() => navigate("/forgotpassword")} // <-- redirect
+          >
             Reset Here
           </span>
         </p>
         <p>
           Don't have an account?{" "}
-          <span className="login-link" onClick={() => alert("Redirect to Sign Up")}>
+          <span
+            className="sign-link"
+            onClick={() => navigate("/signup")} // <-- redirect to signup
+          >
             Sign Up
           </span>
         </p>
