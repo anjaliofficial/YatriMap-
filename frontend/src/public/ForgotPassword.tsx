@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // <-- import useNavigate
 import "../css/ForgotPassword.css";
 
 const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate(); // <-- initialize navigate
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +38,10 @@ const ForgotPassword: React.FC = () => {
         </form>
         <p>
           Remembered your password?{" "}
-          <span className="login-link" onClick={() => window.location.href="/login"}>
+          <span
+            className="login-link"
+            onClick={() => navigate("/login")} // <-- correct navigation
+          >
             Login
           </span>
         </p>
