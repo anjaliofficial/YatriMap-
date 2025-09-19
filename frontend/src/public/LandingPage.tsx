@@ -6,22 +6,30 @@ import mountainBg from "../assets/mountain_bg.jpg";
 import NavbarBeforeLogin from "../components/NavbarBeforeLogin";
 import Footer from "../components/Footer";
 
+// Import images correctly from src/assets
+import khopraImg from "../assets/khopra.jpg";
+import waterImg from "../assets/mardihimal.jpg";
+import poonhillImg from "../assets/Poonhill.jpg";
+import testimonial1 from "../assets/testimonial1.jpg";
+import testimonial2 from "../assets/testimonial2.jpg";
+import testimonial3 from "../assets/testimonial3.jpg";
+
 // Trek Data
 const treksData = [
   {
     title: "Poon Hill Trek",
     desc: "A short and scenic trek with stunning sunrise views over the Annapurnas.",
-    img: "/khopra.jpg",
+    img: khopraImg,
   },
   {
     title: "Mardi Himal Trek",
     desc: "A hidden gem offering breathtaking landscapes and quiet trails.",
-    img: "/water.jpg",
+    img: waterImg,
   },
   {
     title: "Annapurna Circuit Trek",
     desc: "A classic long-distance trek around the majestic Annapurna massif.",
-    img: "/Poonhill.jpg",
+    img: poonhillImg,
   },
 ];
 
@@ -30,17 +38,17 @@ const testimonialsData = [
   {
     name: "Amit Gurung",
     msg: "Trek Nepal made my first Annapurna trek unforgettable. Highly recommended!",
-    img: "/testimonial1.jpg",
+    img: testimonial1,
   },
   {
     name: "Sita Sharma",
     msg: "Easy planning and amazing community. Loved sharing my trekking experience!",
-    img: "/testimonial2.jpg",
+    img: testimonial2,
   },
   {
     name: "Ramesh Thapa",
     msg: "Beautiful trails and seamless app experience. I’ll be back for more treks!",
-    img: "/testimonial3.jpg",
+    img: testimonial3,
   },
 ];
 
@@ -50,6 +58,7 @@ const fadeInUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+// Trek Card
 const TrekCard: React.FC<{ trek: any; index: number }> = ({ trek, index }) => (
   <motion.div
     variants={fadeInUp}
@@ -68,6 +77,7 @@ const TrekCard: React.FC<{ trek: any; index: number }> = ({ trek, index }) => (
   </motion.div>
 );
 
+// Testimonial Card
 const TestimonialCard: React.FC<{ testimonial: any; index: number }> = ({
   testimonial,
   index,
@@ -86,6 +96,7 @@ const TestimonialCard: React.FC<{ testimonial: any; index: number }> = ({
   </motion.div>
 );
 
+// Hero Section
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, -100]);
@@ -131,6 +142,7 @@ const Hero: React.FC = () => {
   );
 };
 
+// Landing Page
 const LandingPage: React.FC = () => {
   return (
     <div className="landing-container">
