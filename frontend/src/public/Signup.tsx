@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // <-- import useNavigate
 import "../css/Signup.css";
 
 const SignUpPage: React.FC = () => {
+  const navigate = useNavigate(); // <-- initialize navigate
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,19 +16,19 @@ const SignUpPage: React.FC = () => {
     terms: false,
   });
 
-const handleChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-) => {
-  const target = e.target;
-  const { name, value, type } = target;
-  const checked = type === "checkbox" ? (target as HTMLInputElement).checked : false;
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const target = e.target;
+    const { name, value, type } = target;
+    const checked =
+      type === "checkbox" ? (target as HTMLInputElement).checked : false;
 
-  setFormData({
-    ...formData,
-    [name]: type === "checkbox" ? checked : value,
-  });
-};
-
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -149,7 +151,10 @@ const handleChange = (
           </button>
         </form>
         <p>
-          Already have an account? <span className="login-link">Login</span>
+          Already have an account?{" "}
+          <span className="login-link" onClick={() => navigate("/login")}>
+            Login
+          </span>
         </p>
       </motion.div>
     </div>
