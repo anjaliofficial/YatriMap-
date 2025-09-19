@@ -1,57 +1,17 @@
-/* ===== Dashboard Layout ===== */
+/* Dashboard Container */
 .dashboard-container {
   display: flex;
   height: 100vh;
   font-family: "Poppins", sans-serif;
+  background: #f1f3f6;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background: #1d3557;
-  color: #fff;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar .logo {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #fca311;
-  margin-bottom: 30px;
-}
-
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar nav ul li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.3s;
-}
-
-.sidebar nav ul li:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.sidebar nav ul li.logout {
-  margin-top: auto;
-  color: #e63946;
-}
-
-/* Main Dashboard */
-.main-dashboard {
+/* Main dashboard */
+.dashboard-main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 /* Topbar */
@@ -60,31 +20,25 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
-  background: #f8f9fa;
-  border-bottom: 1px solid #ddd;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   background: #fff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .search-box input {
-  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   outline: none;
-}
-
-.topbar-icons {
-  display: flex;
-  gap: 20px;
+  width: 250px;
 }
 
 .topbar-icons .icon {
+  margin-left: 20px;
+  font-size: 1.2rem;
   cursor: pointer;
   color: #1d3557;
   transition: color 0.3s;
@@ -97,10 +51,9 @@
 /* Dashboard Content */
 .dashboard-content {
   padding: 25px;
-  overflow-y: auto;
 }
 
-/* Welcome Banner */
+/* Hero Banner */
 .welcome-banner {
   background: linear-gradient(135deg, #1d3557, #457b9d);
   color: #fff;
@@ -111,7 +64,24 @@
 
 .welcome-banner h1 {
   font-size: 2rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.hero-actions button {
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: none;
+  background: #fca311;
+  color: #1d3557;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-actions button:hover {
+  background: #ffb703;
 }
 
 /* Stats Grid */
@@ -127,71 +97,114 @@
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
 }
 
 .stat-card h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  color: #1d3557;
+  margin-bottom: 8px;
+}
+
+/* Map Section */
+.map-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
   color: #1d3557;
 }
 
-/* Activity + Chart */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+.map-placeholder {
+  background: #fff;
+  height: 200px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   margin-bottom: 30px;
 }
 
-.activity-section, .chart-section {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.activity-section ul {
-  list-style: none;
-  margin-top: 15px;
-}
-
-.activity-section ul li {
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-}
-
-/* Profile Section */
-.profile-section {
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.profile-card {
+/* AI Treks */
+.ai-treks-carousel {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
-.profile-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.btn-update {
-  margin-top: 10px;
-  padding: 8px 20px;
-  border: none;
-  background: #fca311;
-  color: #1d3557;
-  font-weight: bold;
-  border-radius: 6px;
+.ai-trek-card {
+  min-width: 180px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   cursor: pointer;
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.ai-trek-card:hover {
+  transform: translateY(-5px);
+}
+
+.trek-icon {
+  font-size: 2rem;
+  color: #fca311;
+  margin-bottom: 8px;
+}
+
+/* Achievements */
+.achievements-carousel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+.badge-card {
+  min-width: 140px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.badge-card:hover {
+  transform: translateY(-5px);
+}
+
+.badge-card svg {
+  font-size: 1.8rem;
+  color: #fca311;
+  margin-bottom: 6px;
+}
+
+/* Notifications */
+.notifications-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notifications-section li {
+  background: #fff;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: background 0.3s;
 }
 
-.btn-update:hover {
-  background: #ffb703;
+.notifications-section li:hover {
+  background: #fca311;
+  color: #1d3557;
+  font-weight: bold;
 }
