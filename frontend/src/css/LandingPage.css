@@ -2,17 +2,19 @@
    Global Reset
 ========================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 html, body, #root {
   height: 100%;
   width: 100%;
+  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: #fff;
+  color: #1d3557;
 }
 
 /* =========================
@@ -21,6 +23,8 @@ html, body, #root {
 .landing-container {
   width: 100%;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* =========================
@@ -34,7 +38,7 @@ html, body, #root {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(29, 53, 87, 0.85); /* semi-transparent dark */
+  background: rgba(29, 53, 87, 0.85);
   z-index: 100;
   backdrop-filter: blur(10px);
 }
@@ -59,7 +63,7 @@ html, body, #root {
 .nav-links a {
   color: #fff;
   font-weight: 500;
-  cursor: pointer;
+  text-decoration: none;
   transition: color 0.3s;
 }
 
@@ -74,7 +78,7 @@ html, body, #root {
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn-login {
@@ -101,9 +105,6 @@ html, body, #root {
 /* =========================
    Hero Section
 ========================= */
-/* =========================
-   Hero Section (Updated Travel Theme)
-========================= */
 .hero {
   position: relative;
   height: 100vh;
@@ -122,9 +123,10 @@ html, body, #root {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/./frontend/src/assets/mountain_bg.jpg') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
   z-index: 1;
-  filter: brightness(0.5) saturate(1.2);
+  filter: brightness(0.55) saturate(1.1);
   transition: all 0.5s ease;
 }
 
@@ -136,14 +138,14 @@ html, body, #root {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 20px;
   color: #fff;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   margin-bottom: 30px;
   color: #f1faee;
   line-height: 1.6;
@@ -158,14 +160,14 @@ html, body, #root {
   font-weight: 700;
   color: #1d3557;
   cursor: pointer;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .btn-cta:hover {
   background: #ffb703;
   transform: translateY(-3px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 }
 
 .scroll-indicator {
@@ -189,28 +191,21 @@ html, body, #root {
   50% { transform: translateY(12px); }
 }
 
-
 /* =========================
    Popular Treks Section
-========================= */
-/* =========================
-   Popular Treks Section (Updated)
 ========================= */
 .treks-section {
   padding: 80px 100px;
   background: url('../assets/mountain_bg.jpg') center/cover no-repeat;
-  color: #fff;
   text-align: center;
   position: relative;
+  color: #fff;
 }
 
 .treks-section::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(29, 53, 87, 0.7);
   z-index: 0;
 }
@@ -219,6 +214,17 @@ html, body, #root {
 .treks-section p {
   position: relative;
   z-index: 2;
+}
+
+.treks-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #fca311;
+}
+
+.treks-section p {
+  font-size: 1.1rem;
+  color: #f1faee;
 }
 
 .treks-grid {
@@ -235,7 +241,7 @@ html, body, #root {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
@@ -265,37 +271,19 @@ html, body, #root {
   line-height: 1.5;
 }
 
-
 /* =========================
    Testimonials Section
 ========================= */
 .testimonials-section {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+  padding: 100px 50px;
+  background: #1d3557;
   color: #fff;
-}
-
-.testimonials-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/mountain-bg.jpg') center/cover no-repeat;
-  z-index: 1;
-  filter: brightness(0.6);
+  text-align: center;
 }
 
 .testimonials-content {
-  position: relative;
-  z-index: 2;
   max-width: 1200px;
-  width: 100%;
+  margin: 0 auto;
 }
 
 .testimonials-content h2 {
@@ -311,12 +299,16 @@ html, body, #root {
 }
 
 .testimonial-card {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   border-radius: 15px;
   padding: 25px;
   backdrop-filter: blur(10px);
-  color: #fff;
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 .testimonial-card img {
@@ -331,6 +323,7 @@ html, body, #root {
 .testimonial-card p {
   font-style: italic;
   margin-bottom: 10px;
+  color: #f1faee;
 }
 
 .testimonial-card h4 {
@@ -339,10 +332,7 @@ html, body, #root {
 }
 
 /* =========================
-   CTA Section (Centered & Distinct)
-========================= */
-/* =========================
-   CTA Section (Elegant & Centered)
+   CTA Section
 ========================= */
 .cta-section {
   display: flex;
@@ -350,10 +340,10 @@ html, body, #root {
   justify-content: center;  
   align-items: center;      
   text-align: center;
-  min-height: 60vh;         
-  background: #ffb703;      /* warm mustard, distinct from footer */
-  color: #1d3557;           /* dark text for contrast */
-  padding: 40px 20px;      
+  min-height: 50vh;         
+  background: linear-gradient(135deg, #fca311, #ffb703);
+  color: #1d3557;
+  padding: 60px 20px;      
 }
 
 .cta-section h2 {
@@ -384,9 +374,6 @@ html, body, #root {
   box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }
 
-
-
-
 /* =========================
    Footer
 ========================= */
@@ -410,6 +397,7 @@ html, body, #root {
 
 .footer-section ul {
   list-style: none;
+  padding: 0;
 }
 
 .footer-section ul li {
@@ -433,6 +421,7 @@ html, body, #root {
   height: 25px;
   color: #fca311;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
 .social-icons .icon:hover {
@@ -443,4 +432,5 @@ html, body, #root {
   text-align: center;
   font-size: 0.9rem;
   margin-top: 20px;
+  color: #f1faee;
 }

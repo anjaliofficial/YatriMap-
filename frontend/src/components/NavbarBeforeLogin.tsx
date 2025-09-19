@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/NavbarBeforeLogin.css";
-import logo from "../assets/logo.png"; // adjust path if needed
+import logo from "../assets/logo.png";
 
 const NavbarBeforeLogin: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const NavbarBeforeLogin: React.FC = () => {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Links */}
         <ul className="navbar-links">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/treks">Treks</Link></li>

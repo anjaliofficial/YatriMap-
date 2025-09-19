@@ -1,164 +1,123 @@
-/* ===== Dashboard Page Layout ===== */
-.dashboard-page {
+/* ================= Navbar Wrapper ================= */
+.navbar-before-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(29, 53, 87, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ================= Container ================= */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 10px; /* 10px padding for left and right edges */
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Main Content below navbar */
-.dashboard-main {
-  flex: 1;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
-
-/* Hero Section */
-.dashboard-hero {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.dashboard-hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: #1d3557;
-}
-
-.dashboard-hero p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.btn-action {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ff7f50;
-  color: #fff;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.btn-action:hover {
-  background-color: #ff5722;
-}
-
-/* Stats Section */
-.dashboard-stats {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.stat-card {
-  background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.stat-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #1d3557;
-}
-
-.stat-card p {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-/* Map Section */
-.dashboard-map {
-  margin-bottom: 30px;
-}
-
-.map-placeholder {
-  background-color: #ddd;
-  height: 200px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  color: #555;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-/* AI Treks Section */
-.ai-treks-carousel {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.ai-trek-card {
-  min-width: 180px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
+/* ================= Logo (Left) ================= */
+.navbar-logo img.logo-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fca311;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
-.ai-trek-card:hover {
-  transform: scale(1.05);
+.navbar-logo img.logo-img:hover {
+  transform: scale(1.08);
 }
 
-.trek-icon {
-  font-size: 2rem;
-  color: #ff7f50;
-  margin-bottom: 10px;
-}
-
-/* Achievements */
-.achievements-carousel {
+/* ================= Links (Between Logo and Buttons) ================= */
+.navbar-links {
   display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.badge-card {
-  min-width: 140px;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.badge-card p {
-  margin-top: 5px;
-}
-
-/* Notifications */
-.dashboard-notifications {
-  margin-top: 30px;
-}
-
-.dashboard-notifications ul {
+  gap: 25px;
+  flex-grow: 1; /* take remaining space */
+  justify-content: flex-end; /* push links close to buttons */
   list-style: none;
-  padding: 0;
+  margin-left: 20px; /* small space after logo */
 }
 
-.dashboard-notifications li {
-  background-color: #fff;
-  padding: 12px 15px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+.navbar-links li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #f1faee;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #fca311;
+}
+
+/* ================= Buttons (Far Right) ================= */
+.navbar-auth {
+  display: flex;
+  gap: 12px;
+  margin-right: 10px; /* 10px from right edge */
+}
+
+.btn-login,
+.btn-signup {
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-login {
+  border: 2px solid #fca311;
+  background: transparent;
+  color: #fca311;
+}
+
+.btn-login:hover {
+  background: #fca311;
+  color: #1d3557;
+}
+
+.btn-signup {
+  background: #fca311;
+  color: #1d3557;
+  border: 2px solid #fca311;
+}
+
+.btn-signup:hover {
+  background: #ffb703;
+  border-color: #ffb703;
+  color: #1d3557;
+}
+
+/* ================= Mobile Responsive ================= */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .navbar-links {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .navbar-auth {
+    order: 3;
+    margin-right: 10px;
+  }
+
+  .navbar-logo {
+    order: 1;
+  }
 }

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { GiMountains, GiTrophy } from "react-icons/gi";
 import "../css/Dashboard.css";
-import NavbarBeforeLogin from "../component/NavbarBeforeLogin";
-import Footer from "../component/Footer";
+import NavbarBeforeLogin from "../components/NavbarBeforeLogin";
+import Footer from "../components/Footer";
 
 const Dashboard: React.FC = () => {
   const [activeTrek, setActiveTrek] = useState<string | null>(null);
