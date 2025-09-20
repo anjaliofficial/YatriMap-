@@ -4,6 +4,9 @@ import { GiMountains, GiHiking, GiTrophy } from "react-icons/gi";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
 import "../css/Dashboard.css";
+import ghorepaniImg from "../assets/ghorepani.jpg";
+import lodgeImg from "../assets/lodge.jpg";
+import mountainImg from "../assets/mountain.jpg";
 
 const Dashboard = () => {
   const [activeAdventure, setActiveAdventure] = useState<string | null>(null);
@@ -22,22 +25,22 @@ const Dashboard = () => {
     { name: "Elevation Master", icon: <GiTrophy /> },
   ];
 
-  const favoritePlaces = [
-    { name: "Ghorepani Viewpoint", type: "Viewpoint", img: "https://source.unsplash.com/400x200/?mountains" },
-    { name: "Annapurna Lodge", type: "Lodge", img: "https://source.unsplash.com/400x200/?lodge" },
-    { name: "Poon Hill Base", type: "POI", img: "https://source.unsplash.com/400x200/?hill" },
-  ];
+// Import images at the top of your component file
+
+
+// Favorite places array
+const favoritePlaces = [
+  { name: "Ghorepani Viewpoint", type: "Viewpoint", img: ghorepaniImg },
+  { name: "Annapurna Lodge", type: "Lodge", img: lodgeImg },
+  { name: "Poon Hill Base", type: "POI", img: mountainImg },
+];
+
 
   const notifications = [
     "Weather alert: Snow on Annapurna Circuit",
     "New AI trek recommendation available",
     "Your Mardi Himal trek starts in 2 days",
   ];
-
-  const handleAdventureClick = (name: string) => {
-    setActiveAdventure(name);
-    alert(`Showing details for ${name}`);
-  };
 
   return (
     <div className="dashboard-page">
@@ -46,131 +49,131 @@ const Dashboard = () => {
       <div className="dashboard-main">
         <div className="dashboard-content">
 
-          {/* Hero Banner */}
-          <section className="welcome-banner">
-            <h1>Welcome Back, John!</h1>
-            <p>Plan your next adventure or check your stats</p>
-            <div className="hero-actions">
-              <button className="btn-action">Start New Trek</button>
-              <button className="btn-action">Upload GPX</button>
-              <button className="btn-action">View Stats</button>
-              <button className="btn-action">AI Recommendations</button>
-            </div>
-          </section>
+          {/* ================= SECTION 1 ================= */}
+          <div className="dashboard-section section-one">
 
-          {/* Hiking Stats */}
-          <div className="stats-grid">
-            <div className="stat-card">
-              <h3>Total Distance</h3>
-              <p>120 km</p>
+            {/* Welcome Banner */}
+            <section className="welcome-banner">
+              <h1>Welcome Back, John!</h1>
+              <p>Plan your next adventure or check your stats</p>
+              <div className="hero-actions">
+                <button>Start New Trek</button>
+                <button>Upload GPX</button>
+                <button>View Stats</button>
+                <button>AI Recommendations</button>
+              </div>
+            </section>
+
+            {/* Stats */}
+            <div className="stats-grid">
+              <div className="stat-card"><h3>Total Distance</h3><p>120 km</p></div>
+              <div className="stat-card"><h3>Elevation Gain</h3><p>4500 m</p></div>
+              <div className="stat-card"><h3>Completed Treks</h3><p>8</p></div>
             </div>
-            <div className="stat-card">
-              <h3>Elevation Gain</h3>
-              <p>4500 m</p>
-            </div>
-            <div className="stat-card">
-              <h3>Completed Treks</h3>
-              <p>8</p>
-            </div>
+
+            {/* AI Treks */}
+            <section className="ai-adventures-section">
+              <h2>AI Recommended Treks & Hikes</h2>
+              <div className="ai-treks-carousel">
+                {adventures.map((adv) => (
+                  <div key={adv.name} className="ai-trek-card">
+                    <div className="icon-wrapper">
+                      {adv.type === "Trek" ? <GiMountains className="trek-icon" /> : <GiHiking className="trek-icon" />}
+                    </div>
+                    <div className="card-content">
+                      <h3>{adv.name}</h3>
+                      <p className="difficulty">{adv.difficulty}</p>
+                      <p className="duration">{adv.duration}</p>
+                    </div>
+                    <div className="adventure-actions">
+                      <button className="btn-small view-route">View Route</button>
+                      <button className="btn-small add-favorites">Add to Favorites</button>
+                      <button className="btn-small start-hike-log">Start Hike Log</button>
+                    </div>
+                    <span className={`adventure-type ${adv.type.toLowerCase()}`}>{adv.type}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
           </div>
 
-          {/* AI Recommended Treks & Hikes */}
-          <section className="ai-adventures-section">
-            <h2>AI Recommended Treks & Hikes</h2>
-            <div className="ai-treks-carousel">
-              {adventures.map((adv) => (
-                <div key={adv.name} className="ai-trek-card">
-                  <div className="icon-wrapper">
-                    {adv.type === "Trek" ? <GiMountains className="trek-icon" /> : <GiHiking className="trek-icon" />}
-                  </div>
-                  <div className="card-content">
-                    <h3>{adv.name}</h3>
-                    <p className="difficulty">{adv.difficulty}</p>
-                    <p className="duration">{adv.duration}</p>
-                  </div>
-                  <div className="adventure-actions">
-                    <button className="btn-small">View Route</button>
-                    <button className="btn-small">Add to Favorites</button>
-                    <button className="btn-small">Start Hike Log</button>
-                  </div>
-                  <span className={`adventure-type ${adv.type.toLowerCase()}`}>{adv.type}</span>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* ================= SECTION 2 ================= */}
+          <div className="dashboard-section section-two">
 
-          {/* Achievements & Badges */}
-          <section className="achievements-section">
-            <h2>Achievements & Badges</h2>
-            <div className="achievements-carousel">
-              {badges.map((badge) => (
-                <div key={badge.name} className="badge-card">
-                  {badge.icon}
-                  <p>{badge.name}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+            {/* Achievements */}
+            <section className="achievements-section">
+              <h2>Achievements & Badges</h2>
+              <div className="achievements-carousel">
+                {badges.map((badge) => (
+                  <div key={badge.name} className="badge-card">
+                    {badge.icon}
+                    <p>{badge.name}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-          {/* Favorite Places */}
-          <section className="favorites-section">
-            <h2>Favorite Places</h2>
-            <div className="favorites-grid">
-              {favoritePlaces.map((place) => (
-                <div key={place.name} className="favorite-card">
-                  <img src={place.img} alt={place.name} />
-                  <div className="favorite-info">
-                    <h3>{place.name}</h3>
-                    <p>{place.type}</p>
-                    <div className="favorite-actions">
-                      <button>View on Map</button>
-                      <button>Start Hike Log</button>
-                      <button>Remove</button>
+            {/* Favorite Places */}
+            <section className="favorites-section">
+              <h2>Favorite Places</h2>
+              <div className="favorites-grid">
+                {favoritePlaces.map((place) => (
+                  <div key={place.name} className="favorite-card">
+                    <img src={place.img} alt={place.name} />
+                    <div className="favorite-info">
+                      <h3>{place.name}</h3>
+                      <p>{place.type}</p>
+                      <div className="favorite-actions">
+                        <button>View on Map</button>
+                        <button>Start Hike Log</button>
+                        <button>Remove</button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
 
-          {/* Interactive Map */}
-          <section className="map-section">
-            <h2><FaMapMarkerAlt /> Interactive Map</h2>
-            <div className="map-placeholder">Map will display here</div>
-          </section>
+            {/* Map */}
+            <section className="map-section">
+              <h2><FaMapMarkerAlt /> Interactive Map</h2>
+              <div className="map-placeholder">Map will display here</div>
+            </section>
 
-          {/* Safety & Alerts */}
-          <section className="notifications-section">
-            <h2>Safety & Alerts</h2>
-            <ul>
-              {notifications.map((note, idx) => (
-                <li key={idx}>{note}</li>
-              ))}
-            </ul>
-          </section>
+            {/* Alerts */}
+            <section className="notifications-section">
+              <h2>Safety & Alerts</h2>
+              <ul>
+                {notifications.map((note, idx) => (
+                  <li key={idx}>{note}</li>
+                ))}
+              </ul>
+            </section>
 
-          {/* Quick Actions */}
-          <section className="quick-actions-section">
-            <h2>Quick Actions</h2>
-            <div className="quick-actions">
-              <button>Upload New Hike</button>
-              <button>Start New Trek Log</button>
-              <button>Filter Treks / Favorites</button>
-              <button>Share Treks</button>
-            </div>
-          </section>
+            {/* Quick Actions */}
+            <section className="quick-actions-section">
+              <h2>Quick Actions</h2>
+              <div className="quick-actions">
+                <button>Upload New Hike</button>
+                <button>Start New Trek Log</button>
+                <button>Filter Treks / Favorites</button>
+                <button>Share Treks</button>
+              </div>
+            </section>
 
-          {/* Community / Social */}
-          <section className="community-section">
-            <h2>Community / Social Features</h2>
-            <div className="community-cards">
-              <div className="community-card"><h3>Leaderboards</h3></div>
-              <div className="community-card"><h3>User Reviews</h3></div>
-              <div className="community-card"><h3>Photo Gallery</h3></div>
-              <div className="community-card"><h3>Group Challenges</h3></div>
-            </div>
-          </section>
+            {/* Community */}
+            <section className="community-section">
+              <h2>Community / Social Features</h2>
+              <div className="community-cards">
+                <div className="community-card"><h3>Leaderboards</h3></div>
+                <div className="community-card"><h3>User Reviews</h3></div>
+                <div className="community-card"><h3>Photo Gallery</h3></div>
+                <div className="community-card"><h3>Group Challenges</h3></div>
+              </div>
+            </section>
 
+          </div>
         </div>
         <Footer />
       </div>
