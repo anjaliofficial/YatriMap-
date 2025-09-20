@@ -24,8 +24,8 @@ html, body, #root {
 .navbar-links { display:flex; gap:20px; list-style:none;}
 .navbar-links li a { color:#fff; text-decoration:none; font-weight:500; transition:0.3s;}
 .navbar-links li a:hover { color:#fca311;}
-.navbar-icons { display:flex; gap:15px; align-items:center;}
-.navbar-icons .icon { font-size:1.5rem; cursor:pointer; transition:0.3s;}
+.navbar-icons { display:flex; gap:10px; align-items:center;}
+.navbar-icons .icon { font-size:1.0rem; cursor:pointer; transition:0.3s;}
 .navbar-icons .icon:hover { color:#fca311; transform:scale(1.2);}
 .navbar-icons .logout { color:#e63946; }
 .navbar-icons .logout:hover { color:#ff6b6b; }

@@ -1,30 +1,22 @@
-/* Make body and root full screen */
-html, body, #root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Navbar */
+/* =========================
+   Navbar
+========================= */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: #1d3557;
+  align-items: center;
+  background: #1d3557;
   color: #fff;
-  padding: 0 30px;
+  padding: 0 20px; /* reduced padding for smaller screens */
   height: 70px;
-  width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
-/* Logo as circle */
+/* Logo */
 .navbar-logo img {
   width: 50px;
   height: 50px;
@@ -32,59 +24,81 @@ html, body, #root {
   cursor: pointer;
   transition: transform 0.2s;
 }
-
 .navbar-logo img:hover {
   transform: scale(1.05);
 }
 
-/* Links container + icons container */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 40px; /* space between links and icons */
-}
-
-/* Navbar links */
+/* Links */
 .navbar-links {
   display: flex;
+  gap: 15px; /* smaller gap */
   list-style: none;
-  gap: 25px;
+  flex: 1; /* take available space between logo and icons */
+  justify-content: center; /* center links */
 }
-
 .navbar-links li a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s;
+  transition: 0.3s;
+  white-space: nowrap; /* prevent wrapping */
 }
-
 .navbar-links li a:hover {
   color: #fca311;
 }
 
-/* Navbar icons */
+/* Icons */
 .navbar-icons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
-.navbar-icons .icon {
-  font-size: 2rem;
+/* Individual icons */
+.navbar-icons .icon,
+.navbar-icons .logout {
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: color 0.3s, transform 0.2s;
+  white-space: nowrap;
+  transition: 0.3s;
 }
 
+/* Hover effects */
 .navbar-icons .icon:hover {
   color: #fca311;
   transform: scale(1.2);
 }
-
-.navbar-icons .logout {
-  color: #e63946;
-}
-
 .navbar-icons .logout:hover {
   color: #ff6b6b;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 0 15px;
+  }
+  .navbar-links {
+    gap: 10px;
+  }
+  .navbar-icons {
+    gap: 8px;
+  }
+  .navbar-icons .icon,
+  .navbar-icons .logout {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 10px;
+  }
+  .navbar-links {
+    gap: 8px;
+    justify-content: flex-start; /* align links left if space is small */
+  }
+  .navbar-icons {
+    gap: 6px;
+  }
 }

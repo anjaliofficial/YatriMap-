@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-import { FaMapMarkerAlt, FaHeart, FaRoute } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { GiMountains, GiHiking, GiTrophy } from "react-icons/gi";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
 import "../css/Dashboard.css";
 
-// Sample favorite places images
-import trekImg from "../assets/Poonhill.jpg";
-import lodgeImg from "../assets/testimonial2.jpg";
-
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
   const [activeAdventure, setActiveAdventure] = useState<string | null>(null);
 
-  // AI Trek Recommendations
   const adventures = [
     { name: "Poon Hill", type: "Trek", difficulty: "Easy", duration: "3 days" },
     { name: "Mardi Himal", type: "Trek", difficulty: "Intermediate", duration: "5 days" },
@@ -21,25 +16,22 @@ const Dashboard: React.FC = () => {
     { name: "Dhampus Loop", type: "Hike", difficulty: "Intermediate", duration: "2 days" },
   ];
 
-  // Achievements
   const badges = [
     { name: "100 km Hiked", icon: <GiTrophy /> },
     { name: "5 Treks Completed", icon: <GiTrophy /> },
     { name: "Elevation Master", icon: <GiTrophy /> },
   ];
 
-  // Favorite Places
-  const favorites = [
-    { name: "Ghandruk Viewpoint", type: "Viewpoint", region: "Annapurna", img: trekImg },
-    { name: "ABC Lodge", type: "Lodge", region: "Annapurna", img: lodgeImg },
-    { name: "Phewa Lake", type: "POI", region: "Pokhara", img: trekImg },
+  const favoritePlaces = [
+    { name: "Ghorepani Viewpoint", type: "Viewpoint", img: "https://source.unsplash.com/400x200/?mountains" },
+    { name: "Annapurna Lodge", type: "Lodge", img: "https://source.unsplash.com/400x200/?lodge" },
+    { name: "Poon Hill Base", type: "POI", img: "https://source.unsplash.com/400x200/?hill" },
   ];
 
-  // Notifications / Safety
   const notifications = [
     "Weather alert: Snow on Annapurna Circuit",
-    "AI safety alert: Steep trail ahead on Mardi Himal",
-    "Emergency contact updated",
+    "New AI trek recommendation available",
+    "Your Mardi Himal trek starts in 2 days",
   ];
 
   const handleAdventureClick = (name: string) => {
@@ -69,16 +61,16 @@ const Dashboard: React.FC = () => {
           {/* Hiking Stats */}
           <div className="stats-grid">
             <div className="stat-card">
-              <h3>Total Hikes</h3>
-              <p>15</p>
-            </div>
-            <div className="stat-card">
               <h3>Total Distance</h3>
-              <p>250 km</p>
+              <p>120 km</p>
             </div>
             <div className="stat-card">
               <h3>Elevation Gain</h3>
-              <p>8,500 m</p>
+              <p>4500 m</p>
+            </div>
+            <div className="stat-card">
+              <h3>Completed Treks</h3>
+              <p>8</p>
             </div>
           </div>
 
@@ -87,7 +79,7 @@ const Dashboard: React.FC = () => {
             <h2>AI Recommended Treks & Hikes</h2>
             <div className="ai-treks-carousel">
               {adventures.map((adv) => (
-                <div key={adv.name} className="ai-trek-card" onClick={() => handleAdventureClick(adv.name)}>
+                <div key={adv.name} className="ai-trek-card">
                   <div className="icon-wrapper">
                     {adv.type === "Trek" ? <GiMountains className="trek-icon" /> : <GiHiking className="trek-icon" />}
                   </div>
@@ -97,8 +89,8 @@ const Dashboard: React.FC = () => {
                     <p className="duration">{adv.duration}</p>
                   </div>
                   <div className="adventure-actions">
-                    <button className="btn-small"><FaRoute /> View Route</button>
-                    <button className="btn-small"><FaHeart /> Add to Favorites</button>
+                    <button className="btn-small">View Route</button>
+                    <button className="btn-small">Add to Favorites</button>
                     <button className="btn-small">Start Hike Log</button>
                   </div>
                   <span className={`adventure-type ${adv.type.toLowerCase()}`}>{adv.type}</span>
@@ -124,15 +116,14 @@ const Dashboard: React.FC = () => {
           <section className="favorites-section">
             <h2>Favorite Places</h2>
             <div className="favorites-grid">
-              {favorites.map((fav) => (
-                <div key={fav.name} className="favorite-card">
-                  <img src={fav.img} alt={fav.name} />
+              {favoritePlaces.map((place) => (
+                <div key={place.name} className="favorite-card">
+                  <img src={place.img} alt={place.name} />
                   <div className="favorite-info">
-                    <h3>{fav.name}</h3>
-                    <p>Type: {fav.type}</p>
-                    <p>Region: {fav.region}</p>
+                    <h3>{place.name}</h3>
+                    <p>{place.type}</p>
                     <div className="favorite-actions">
-                      <button><FaMapMarkerAlt /> View on Map</button>
+                      <button>View on Map</button>
                       <button>Start Hike Log</button>
                       <button>Remove</button>
                     </div>
@@ -142,12 +133,10 @@ const Dashboard: React.FC = () => {
             </div>
           </section>
 
-          {/* Map Section */}
+          {/* Interactive Map */}
           <section className="map-section">
             <h2><FaMapMarkerAlt /> Interactive Map</h2>
-            <div className="map-placeholder">
-              Map will display recommended treks, hikes, and favorite places
-            </div>
+            <div className="map-placeholder">Map will display here</div>
           </section>
 
           {/* Safety & Alerts */}
@@ -164,21 +153,21 @@ const Dashboard: React.FC = () => {
           <section className="quick-actions-section">
             <h2>Quick Actions</h2>
             <div className="quick-actions">
-              <button>Upload New Hike (GPX)</button>
+              <button>Upload New Hike</button>
               <button>Start New Trek Log</button>
               <button>Filter Treks / Favorites</button>
               <button>Share Treks</button>
             </div>
           </section>
 
-          {/* Community Section */}
+          {/* Community / Social */}
           <section className="community-section">
-            <h2>Community</h2>
+            <h2>Community / Social Features</h2>
             <div className="community-cards">
-              <div className="community-card">Leaderboards</div>
-              <div className="community-card">User Reviews</div>
-              <div className="community-card">Photo Gallery</div>
-              <div className="community-card">Group Challenges</div>
+              <div className="community-card"><h3>Leaderboards</h3></div>
+              <div className="community-card"><h3>User Reviews</h3></div>
+              <div className="community-card"><h3>Photo Gallery</h3></div>
+              <div className="community-card"><h3>Group Challenges</h3></div>
             </div>
           </section>
 
