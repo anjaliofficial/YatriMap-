@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { GiMountains, GiTrophy } from "react-icons/gi";
-import "../css/Dashboard.css";
+import { GiMountains, GiTrophy, GiHiking } from "react-icons/gi";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
+import "../css/Dashboard.css";
 
 const Dashboard = () => {
-  const [activeTrek, setActiveTrek] = useState<string | null>(null);
+  const [activeAdventure, setActiveAdventure] = useState<string | null>(null);
 
   const treks = [
-    { name: "Poon Hill", difficulty: "Easy", duration: "3 days" },
-    { name: "Mardi Himal", difficulty: "Intermediate", duration: "5 days" },
-    { name: "Annapurna Circuit", difficulty: "Advanced", duration: "12 days" },
+    { name: "Poon Hill", type: "Trek", difficulty: "Easy", duration: "3 days" },
+    { name: "Mardi Himal", type: "Trek", difficulty: "Intermediate", duration: "5 days" },
+    { name: "Annapurna Circuit", type: "Trek", difficulty: "Advanced", duration: "12 days" },
+  ];
+
+  const hikes = [
+    { name: "Nagarkot Sunrise", type: "Hike", difficulty: "Easy", duration: "1 day" },
+    { name: "Dhampus Loop", type: "Hike", difficulty: "Intermediate", duration: "2 days" },
   ];
 
   const badges = [
@@ -26,27 +31,26 @@ const Dashboard = () => {
     "Your Mardi Himal trek starts in 2 days",
   ];
 
-  const handleTrekClick = (name: string) => {
-    setActiveTrek(name);
+  const handleAdventureClick = (name: string) => {
+    setActiveAdventure(name);
     alert(`Showing details for ${name}`);
   };
 
   return (
     <div className="dashboard-page">
-      {/* Navbar */}
       <NavbarAfterLogin />
 
-      {/* Main Content */}
       <div className="dashboard-main">
         <div className="dashboard-content">
+
           {/* Hero Section */}
           <section className="welcome-banner">
             <h1>Welcome Back, John!</h1>
             <p>Plan your next adventure or check your stats</p>
             <div className="hero-actions">
               <button className="btn-action">Start New Trek</button>
+              <button className="btn-action">Start New Hike</button>
               <button className="btn-action">Upload GPX</button>
-              <button className="btn-action">View Stats</button>
               <button className="btn-action">AI Recommendations</button>
             </div>
           </section>
@@ -62,7 +66,7 @@ const Dashboard = () => {
               <p>4500 m</p>
             </div>
             <div className="stat-card">
-              <h3>Completed Treks</h3>
+              <h3>Completed Adventures</h3>
               <p>8</p>
             </div>
           </div>
@@ -72,23 +76,26 @@ const Dashboard = () => {
             <h2>
               <FaMapMarkerAlt /> Your Routes
             </h2>
-            <div className="map-placeholder">Map will display here</div>
+            <div className="map-placeholder">
+              <p>Interactive Map Placeholder</p>
+            </div>
           </section>
 
-          {/* AI Recommended Treks */}
-          <section className="ai-treks-section">
-            <h2>AI Recommended Treks</h2>
-            <div className="ai-treks-carousel">
-              {treks.map((trek) => (
+          {/* AI Recommended Adventures */}
+          <section className="ai-adventures-section">
+            <h2>AI Recommended Treks & Hikes</h2>
+            <div className="adventures-carousel">
+              {[...treks, ...hikes].map((adv) => (
                 <div
-                  key={trek.name}
-                  className="ai-trek-card"
-                  onClick={() => handleTrekClick(trek.name)}
+                  key={adv.name}
+                  className={`adventure-card ${adv.type.toLowerCase()}`}
+                  onClick={() => handleAdventureClick(adv.name)}
                 >
-                  <GiMountains className="trek-icon" />
-                  <h3>{trek.name}</h3>
-                  <p>{trek.difficulty}</p>
-                  <p>{trek.duration}</p>
+                  {adv.type === "Trek" ? <GiMountains className="adventure-icon" /> : <GiHiking className="adventure-icon" />}
+                  <h3>{adv.name}</h3>
+                  <p>{adv.difficulty}</p>
+                  <p>{adv.duration}</p>
+                  <span className="adventure-type">{adv.type}</span>
                 </div>
               ))}
             </div>
@@ -116,6 +123,7 @@ const Dashboard = () => {
               ))}
             </ul>
           </section>
+
         </div>
         <Footer />
       </div>
