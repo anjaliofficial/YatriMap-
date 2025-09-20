@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaMapMarkerAlt, FaBell, FaUser, FaCog } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { GiMountains, GiTrophy } from "react-icons/gi";
 import "../css/Dashboard.css";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
@@ -32,24 +32,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
-      {/* Sidebar */}
+    <div className="dashboard-page">
+      {/* Navbar */}
       <NavbarAfterLogin />
 
       {/* Main Content */}
       <div className="dashboard-main">
-        {/* Topbar */}
-        <div className="topbar">
-          <div className="search-box">
-            <input type="text" placeholder="Search treks, routes..." />
-          </div>
-          <div className="topbar-icons">
-            <FaBell className="icon" title="Notifications" />
-            <FaCog className="icon" title="Settings" />
-            <FaUser className="icon" title="Profile" />
-          </div>
-        </div>
-
         <div className="dashboard-content">
           {/* Hero Section */}
           <section className="welcome-banner">
@@ -79,7 +67,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Map Placeholder */}
+          {/* Map Section */}
           <section className="map-section">
             <h2>
               <FaMapMarkerAlt /> Your Routes
@@ -129,8 +117,6 @@ const Dashboard = () => {
             </ul>
           </section>
         </div>
-
-        {/* Footer */}
         <Footer />
       </div>
     </div>

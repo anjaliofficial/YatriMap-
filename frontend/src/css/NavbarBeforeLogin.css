@@ -1,123 +1,105 @@
-/* ================= Navbar Wrapper ================= */
-.navbar-before-login {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* =========================
+   Global Reset
+========================= */
+html, body, #root {
   width: 100%;
-  background: rgba(29, 53, 87, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ================= Container ================= */
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px 10px; /* 10px padding for left and right edges */
+/* =========================
+   Navbar Styles
+========================= */
+.navbar-before-login {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  background-color: #1d3557;
+  color: #fff;
+  padding: 0 30px;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
-/* ================= Logo (Left) ================= */
-.navbar-logo img.logo-img {
-  height: 50px;
+/* Logo as circle */
+.navbar-logo img {
   width: 50px;
+  height: 50px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #fca311;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.2s;
 }
 
-.navbar-logo img.logo-img:hover {
-  transform: scale(1.08);
+.navbar-logo img:hover {
+  transform: scale(1.05);
 }
 
-/* ================= Links (Between Logo and Buttons) ================= */
+/* Container for links + auth buttons */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* space between links and auth buttons */
+}
+
+/* Navbar links */
 .navbar-links {
   display: flex;
-  gap: 25px;
-  flex-grow: 1; /* take remaining space */
-  justify-content: flex-end; /* push links close to buttons */
   list-style: none;
-  margin-left: 20px; /* small space after logo */
+  gap: 25px;
 }
 
 .navbar-links li a {
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
-  color: #f1faee;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .navbar-links li a:hover {
   color: #fca311;
 }
 
-/* ================= Buttons (Far Right) ================= */
-.navbar-auth {
-  display: flex;
-  gap: 12px;
-  margin-right: 10px; /* 10px from right edge */
-}
-
-.btn-login,
-.btn-signup {
+/* Auth buttons */
+.navbar-auth .btn-login,
+.navbar-auth .btn-signup {
   padding: 8px 18px;
-  border-radius: 25px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  border-radius: 5px;
+  font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
-.btn-login {
+/* Login button with spacing */
+.navbar-auth .btn-login {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  margin-right: 15px; /* space between login and signup */
+}
+
+.navbar-auth .btn-login:hover {
+  background-color: #fca311;
+  border-color: #fca311;
+  color: #1d3557;
+}
+
+/* Sign Up button */
+.navbar-auth .btn-signup {
+  background-color: #fca311;
+  color: #1d3557;
   border: 2px solid #fca311;
-  background: transparent;
-  color: #fca311;
 }
 
-.btn-login:hover {
-  background: #fca311;
-  color: #1d3557;
-}
-
-.btn-signup {
-  background: #fca311;
-  color: #1d3557;
-  border: 2px solid #fca311;
-}
-
-.btn-signup:hover {
-  background: #ffb703;
-  border-color: #ffb703;
-  color: #1d3557;
-}
-
-/* ================= Mobile Responsive ================= */
-@media (max-width: 768px) {
-  .navbar-container {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .navbar-links {
-    order: 2;
-    width: 100%;
-    justify-content: center;
-    margin: 10px 0;
-  }
-
-  .navbar-auth {
-    order: 3;
-    margin-right: 10px;
-  }
-
-  .navbar-logo {
-    order: 1;
-  }
+.navbar-auth .btn-signup:hover {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
 }
