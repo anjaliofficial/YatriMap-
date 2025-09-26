@@ -155,26 +155,21 @@ html, body, #root {
 /* =========================
    AI Treks & Adventures
 ========================= */
-
-/* Outer carousel: taller container */
 .ai-treks-carousel {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #1d3557;
   height: 450px; /* increased height */
   align-items: center; /* vertically center inner cards */
-  padding-top: 20px; /* optional: space at top */
-  padding-bottom: 20px; /* optional: space at bottom */
   border-radius: 15px;
-
 }
 
-/* Inner cards: fixed size */
 .ai-trek-card {
   min-width: 220px;
-  max-height: 400px; /* fixed height so cards don’t stretch */
+  max-height: 400px;
   background: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -192,7 +187,6 @@ html, body, #root {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-
 
 .icon-wrapper {
   width: 60px;
@@ -214,9 +208,9 @@ html, body, #root {
   color: #1d3557;
 }
 
-.adventure-type.trek { background: #1d3557; color: #fff; }
-.adventure-type.hike { background: #2a9d8f; color: #fff; }
-
+/* =========================
+   Adventure Buttons
+========================= */
 .adventure-actions {
   display: flex;
   flex-direction: column;
@@ -226,8 +220,6 @@ html, body, #root {
 }
 
 .btn-small {
-  background: #1d3557;
-  color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
   border: none;
@@ -241,7 +233,62 @@ html, body, #root {
   transition: 0.3s;
 }
 
-.btn-small:hover { background: #2a9d8f; }
+/* View Route Button */
+.btn-small.view-route {
+  background: #1d3557;
+  color: #fff;
+}
+.btn-small.view-route:hover {
+  background: #3a539b;
+}
+
+/* Add to Favorites Button */
+.btn-small.add-favorites {
+  background: #fca311;
+  color: #1d3557;
+}
+.btn-small.add-favorites:hover {
+  background: #ffb703;
+}
+
+/* Start Hike Log Button */
+.btn-small.start-hike-log {
+  background: linear-gradient(135deg, #2a9d8f, #1abc9c);
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid #16a085;
+}
+.btn-small.start-hike-log:hover {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  transform: scale(1.05);
+}
+
+/* =========================
+   Trek / Hike Badge
+========================= */
+.adventure-type {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.adventure-type.trek {
+  background: #1d3557;
+  color: #fff;
+}
+
+.adventure-type.hike {
+  background: #2a9d8f;
+  color: #fff;
+}
 
 /* =========================
    Achievements / Badges

@@ -25,16 +25,11 @@ const Dashboard = () => {
     { name: "Elevation Master", icon: <GiTrophy /> },
   ];
 
-// Import images at the top of your component file
-
-
-// Favorite places array
-const favoritePlaces = [
-  { name: "Ghorepani Viewpoint", type: "Viewpoint", img: ghorepaniImg },
-  { name: "Annapurna Lodge", type: "Lodge", img: lodgeImg },
-  { name: "Poon Hill Base", type: "POI", img: mountainImg },
-];
-
+  const favoritePlaces = [
+    { name: "Ghorepani Viewpoint", type: "Viewpoint", img: ghorepaniImg },
+    { name: "Annapurna Lodge", type: "Lodge", img: lodgeImg },
+    { name: "Poon Hill Base", type: "POI", img: mountainImg },
+  ];
 
   const notifications = [
     "Weather alert: Snow on Annapurna Circuit",
