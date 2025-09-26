@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
-import "../css/Dashboard.css"; // reuse existing styles
+import "../css/.css"; // reuse existing styles
 import ghorepaniImg from "../assets/ghorepani.jpg";
 import lodgeImg from "../assets/lodge.jpg";
 import mountainImg from "../assets/mountain.jpg";
