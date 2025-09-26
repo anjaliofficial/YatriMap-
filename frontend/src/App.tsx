@@ -9,6 +9,8 @@ const Signup = lazy(() => import("./public/Signup"));
 const LoginPage = lazy(() => import("./public/LoginPage"));
 const ForgotPasswordPage = lazy(() => import("./public/ForgotPassword"));
 const Dashboard = lazy(() => import("./public/Dashboard"));
+const FavoritePlaces = lazy(() => import("./public/FavoritePlaces"));
+
 
 
 
@@ -45,6 +47,7 @@ const App: React.FC = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/favoriteplaces" element={<FavoritePlaces />} />
 
 
 
