@@ -1,32 +1,39 @@
 import React from "react";
-import "../css/Aboutuspage.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import "./About.css";
 
 const About: React.FC = () => {
   return (
     <div className="about-page">
+      <Header />
+
       {/* Hero Section */}
       <section className="about-hero">
-        <h1>About Us</h1>
-        <p>
-          We are passionate about building meaningful digital experiences that
-          inspire, connect, and empower.
-        </p>
+        <div className="about-hero-content">
+          <h1>About Us</h1>
+          <p>
+            We are passionate about delivering innovative digital solutions that
+            inspire and empower people. Our mission is to create experiences
+            that make a lasting impact.
+          </p>
+        </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Mission / Vision */}
       <section className="about-mission">
         <div className="mission-box">
           <h2>Our Mission</h2>
           <p>
-            To deliver innovative and user-friendly solutions that simplify
-            lives, foster creativity, and promote growth.
+            To provide cutting-edge technology and user-focused solutions that
+            bring value to individuals, communities, and businesses.
           </p>
         </div>
         <div className="mission-box">
           <h2>Our Vision</h2>
           <p>
-            To be a trusted global leader in technology and design, shaping a
-            brighter digital future for everyone.
+            To be recognized as a global leader in digital innovation, shaping
+            the future with creativity, trust, and excellence.
           </p>
         </div>
       </section>
@@ -36,41 +43,24 @@ const About: React.FC = () => {
         <h2>Meet Our Team</h2>
         <div className="team-grid">
           <div className="team-card">
-            <img src="https://via.placeholder.com/200" alt="Jane Doe" />
+            <img src="/images/team1.jpg" alt="Team Member" />
             <h3>Jane Doe</h3>
-            <p>Founder & CEO</p>
+            <p>CEO & Founder</p>
           </div>
           <div className="team-card">
-            <img src="https://via.placeholder.com/200" alt="John Smith" />
+            <img src="/images/team2.jpg" alt="Team Member" />
             <h3>John Smith</h3>
-            <p>Head of Design</p>
+            <p>CTO</p>
           </div>
           <div className="team-card">
-            <img src="https://via.placeholder.com/200" alt="Emily Johnson" />
-            <h3>Emily Johnson</h3>
-            <p>Lead Developer</p>
+            <img src="/images/team3.jpg" alt="Team Member" />
+            <h3>Sarah Lee</h3>
+            <p>Head of Design</p>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="about-values">
-        <h2>Our Core Values</h2>
-        <div className="values-grid">
-          <div className="value-box">
-            <h3>Innovation</h3>
-            <p>We constantly explore new ideas and push boundaries.</p>
-          </div>
-          <div className="value-box">
-            <h3>Integrity</h3>
-            <p>We believe in honesty, transparency, and trust.</p>
-          </div>
-          <div className="value-box">
-            <h3>Excellence</h3>
-            <p>We strive for the highest quality in everything we do.</p>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </div>
   );
 };
