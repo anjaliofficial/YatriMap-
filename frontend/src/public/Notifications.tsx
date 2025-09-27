@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../components/NavbarAfterLogin";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../css/Notifications.css";
+import "./Notifications.css";
 
 interface Notification {
   id: number;
@@ -16,6 +16,7 @@ const Notifications: React.FC = () => {
     { id: 1, title: "New Message", message: "You have a new message from John.", time: "2 min ago", read: false },
     { id: 2, title: "Hike Reminder", message: "Your hike to Poon Hill is tomorrow at 6:00 AM.", time: "1 hour ago", read: true },
     { id: 3, title: "Update Available", message: "Version 2.1.0 is now available for download.", time: "Yesterday", read: false },
+    { id: 4, title: "New Follower", message: "Anna started following you.", time: "2 days ago", read: false },
   ]);
 
   const markAsRead = (id: number) => {
@@ -42,19 +43,21 @@ const Notifications: React.FC = () => {
           {notifications.length === 0 ? (
             <p className="empty-text">No notifications yet.</p>
           ) : (
-            notifications.map(notification => (
-              <div
-                key={notification.id}
-                className={`notification-card ${notification.read ? "read" : "unread"}`}
-                onClick={() => markAsRead(notification.id)}
-              >
-                <div className="notification-info">
-                  <h3>{notification.title}</h3>
-                  <p>{notification.message}</p>
-                  <span className="notification-time">{notification.time}</span>
+            <div className="notifications-grid">
+              {notifications.map(notification => (
+                <div
+                  key={notification.id}
+                  className={`notification-card ${notification.read ? "read" : "unread"}`}
+                  onClick={() => markAsRead(notification.id)}
+                >
+                  <div className="notification-info">
+                    <h3>{notification.title}</h3>
+                    <p>{notification.message}</p>
+                    <span className="notification-time">{notification.time}</span>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))}
+            </div>
           )}
         </div>
       </section>

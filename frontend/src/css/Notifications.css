@@ -11,25 +11,25 @@
 }
 
 /* =========================
-   Main Section
+   Main Section - Full Width
 ========================= */
 .notifications-main {
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 40px 0;
 }
 
 .notifications-container {
-  width: 100%;
-  max-width: 900px;
+  width: 95vw;       /* Full horizontal width */
+  height: calc(100vh - 160px); /* full height minus header & footer */
   background: #fff;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 0;   /* Remove round edges for full screen */
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  overflow-y: auto;
 }
 
 /* =========================
@@ -48,7 +48,7 @@
 }
 
 .notifications-header button {
-  padding: 8px 15px;
+  padding: 8px 18px;
   background: #2a9d8f;
   color: #fff;
   border: none;
@@ -60,6 +60,16 @@
 
 .notifications-header button:hover {
   background: #21867a;
+}
+
+/* =========================
+   Notifications Grid (Horizontal Full Width)
+========================= */
+.notifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
 }
 
 /* =========================
