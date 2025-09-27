@@ -16,18 +16,25 @@ const FavoritePlaces = () => {
     { name: "Himalayan View", type: "POI", img: mountainImg },
   ]);
 
-  const removePlace = (name: string) => {
+  const removePlace = (name) => {
     setFavoritePlaces(favoritePlaces.filter(place => place.name !== name));
   };
 
   return (
     <div className="favorites-page">
       <NavbarAfterLogin />
+
+      {/* Title Section */}
+      <div className="favorites-title">
+        <h1>✨ Favorite Places</h1>
+        <p>Keep track of your most loved destinations</p>
+      </div>
+
+      {/* Main Grid Section */}
       <div className="favorites-main">
         <div className="favorites-container">
-          <div className="favorites-header">My Favorite Places</div>
           {favoritePlaces.length === 0 ? (
-            <p>You have no favorite places yet.</p>
+            <p className="empty-text">You have no favorite places yet.</p>
           ) : (
             favoritePlaces.map((place) => (
               <div key={place.name} className="favorite-card">
@@ -46,6 +53,7 @@ const FavoritePlaces = () => {
           )}
         </div>
       </div>
+
       <Footer />
     </div>
   );
