@@ -1,128 +1,85 @@
 /* =========================
-   Full-Screen Favorite Places Page
+   Full-Screen Favorite Places Page - Premium Design
 ========================= */
-
-/* General Page */
 .favorites-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: url("../assets/mountain.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
+  background: #e5e5e5;
   font-family: "Poppins", sans-serif;
+  color: #1d3557;
 }
 
 .favorites-main {
   flex: 1;
+  padding-top: 70px; /* space for navbar */
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
-.favorites-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  min-height: 100vh;
-  background: rgba(0,0,0,0.4);
-}
-
-/* =========================
-   Header
-========================= */
-.favorites-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 25px;
-  color: #ffd166;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-  text-align: center;
-}
-
-/* =========================
-   Grid layout - vertical
-========================= */
-.favorites-grid.vertical {
+.favorites-container {
+  width: 95vw;
+  height: 90vh;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 25px;
-}
-
-/* =========================
-   Grid layout - horizontal full screen
-========================= */
-.favorites-grid.horizontal {
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
-  flex: 1; /* fill remaining height */
-}
-
-.favorites-grid.horizontal::-webkit-scrollbar {
-  height: 10px;
-}
-.favorites-grid.horizontal::-webkit-scrollbar-thumb {
-  background: #1d3557;
-  border-radius: 5px;
-}
-.favorites-grid.horizontal::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.1);
-}
-
-/* =========================
-   Cards
-========================= */
-.favorite-card {
-  background: rgba(255, 255, 255, 0.95);
-  color: #1d3557;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
 }
 
-.favorite-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-}
-
-/* Horizontal cards fixed width */
-.favorites-grid.horizontal .favorite-card {
-  min-width: 300px;
-  flex-shrink: 0;
-}
-
-/* Type Badge */
-.card-type-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 5px 10px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
+/* =========================
+   Gradient Header
+========================= */
+.favorites-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #1d3557, #457b9d);
   color: #fff;
-  z-index: 2;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 15px 0;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  margin-bottom: 15px;
+  z-index: 10;
 }
 
-.card-type-badge.viewpoint { background: #f77f00; }
-.card-type-badge.lodge { background: #1d3557; }
-.card-type-badge.poi { background: #2a9d8f; }
+/* =========================
+   Favorite Card
+========================= */
+.favorite-card {
+  background: linear-gradient(135deg, #fefefe, #f1f3f6);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+}
 
 .favorite-card img {
   width: 100%;
-  height: 180px;
+  height: 130px;
   object-fit: cover;
   transition: transform 0.3s;
+  border-bottom: 1px solid #ddd;
 }
 
-.favorite-card img:hover { transform: scale(1.05); }
+.favorite-card img:hover {
+  transform: scale(1.05);
+}
 
 .favorite-info {
   padding: 15px;
@@ -132,9 +89,21 @@
   justify-content: space-between;
 }
 
-.favorite-info h3 { font-size: 1.4rem; margin-bottom: 6px; }
-.favorite-info p { font-size: 1rem; color: #555; margin-bottom: 12px; }
+.favorite-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
 
+.favorite-info p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   Favorite Buttons
+========================= */
 .favorite-actions {
   display: flex;
   gap: 8px;
@@ -144,50 +113,63 @@
 .favorite-actions button {
   flex: 1;
   padding: 10px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  transition: all 0.3s;
 }
 
-.favorite-actions button:nth-child(1) { background: #1d3557; color: #fff; }
-.favorite-actions button:nth-child(1):hover { background: #3a539b; }
+.favorite-actions button:nth-child(1) {
+  background: #1d3557;
+  color: #fff;
+}
+.favorite-actions button:nth-child(1):hover {
+  background: #3a539b;
+}
 
 .favorite-actions button:nth-child(2) {
   background: linear-gradient(135deg, #2a9d8f, #1abc9c);
   color: #fff;
   font-weight: 700;
-  border: 1px solid #16a085;
 }
-.favorite-actions button:nth-child(2):hover { transform: scale(1.05); }
+.favorite-actions button:nth-child(2):hover {
+  transform: scale(1.05);
+}
 
-.favorite-actions button:nth-child(3) { background: #ff6b6b; color: #fff; }
-.favorite-actions button:nth-child(3):hover { transform: scale(1.05); }
-
-/* Empty state */
-.favorites-section p {
-  font-size: 1.2rem;
+.favorite-actions button:nth-child(3) {
+  background: #ff6b6b;
   color: #fff;
-  margin-top: 20px;
-  text-align: center;
+}
+.favorite-actions button:nth-child(3):hover {
+  transform: scale(1.05);
 }
 
 /* =========================
-   Responsive
+   Scrollbar Styling
 ========================= */
-@media (max-width: 1024px) {
-  .favorites-grid.horizontal {
-    flex-direction: column;
-    overflow-x: hidden;
-    gap: 20px;
-  }
-  .favorites-grid.horizontal .favorite-card {
-    min-width: auto;
-  }
+.favorites-container::-webkit-scrollbar {
+  width: 10px;
+}
+.favorites-container::-webkit-scrollbar-thumb {
+  background: rgba(29, 53, 87, 0.6);
+  border-radius: 5px;
+}
+.favorites-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+
+/* =========================
+   Empty State
+========================= */
+.favorites-section p {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
 }

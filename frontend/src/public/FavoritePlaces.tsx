@@ -8,47 +8,42 @@ import mountainImg from "../assets/mountain.jpg";
 
 const FavoritePlaces = () => {
   const [favoritePlaces, setFavoritePlaces] = useState([
-    { name: "Ghorepani Viewpoint", type: "viewpoint", img: ghorepaniImg },
-    { name: "Annapurna Lodge", type: "lodge", img: lodgeImg },
-    { name: "Poon Hill Base", type: "poi", img: mountainImg },
+    { name: "Ghorepani Viewpoint", type: "Viewpoint", img: ghorepaniImg },
+    { name: "Annapurna Lodge", type: "Lodge", img: lodgeImg },
+    { name: "Poon Hill Base", type: "POI", img: mountainImg },
+    { name: "Sunrise Peak", type: "Viewpoint", img: ghorepaniImg },
+    { name: "ABC Lodge", type: "Lodge", img: lodgeImg },
+    { name: "Himalayan View", type: "POI", img: mountainImg },
   ]);
 
   const removePlace = (name: string) => {
-    setFavoritePlaces(favoritePlaces.filter(p => p.name !== name));
+    setFavoritePlaces(favoritePlaces.filter(place => place.name !== name));
   };
-
-  // Detect large screen for horizontal
-  const isHorizontal = window.innerWidth > 1200;
 
   return (
     <div className="favorites-page">
       <NavbarAfterLogin />
       <div className="favorites-main">
-        <div className="favorites-content">
-          <section className="favorites-section">
-            <h1>My Favorite Places</h1>
-            {favoritePlaces.length === 0 ? (
-              <p>You have no favorite places yet.</p>
-            ) : (
-              <div className={`favorites-grid ${isHorizontal ? "horizontal" : "vertical"}`}>
-                {favoritePlaces.map(place => (
-                  <div key={place.name} className="favorite-card">
-                    <span className={`card-type-badge ${place.type}`}>{place.type.toUpperCase()}</span>
-                    <img src={place.img} alt={place.name} />
-                    <div className="favorite-info">
-                      <h3>{place.name}</h3>
-                      <p>{place.type}</p>
-                      <div className="favorite-actions">
-                        <button>View on Map</button>
-                        <button>Start Hike Log</button>
-                        <button onClick={() => removePlace(place.name)}>Remove</button>
-                      </div>
-                    </div>
+        <div className="favorites-container">
+          <div className="favorites-header">My Favorite Places</div>
+          {favoritePlaces.length === 0 ? (
+            <p>You have no favorite places yet.</p>
+          ) : (
+            favoritePlaces.map((place) => (
+              <div key={place.name} className="favorite-card">
+                <img src={place.img} alt={place.name} />
+                <div className="favorite-info">
+                  <h3>{place.name}</h3>
+                  <p>{place.type}</p>
+                  <div className="favorite-actions">
+                    <button>View on Map</button>
+                    <button>Start Hike Log</button>
+                    <button onClick={() => removePlace(place.name)}>Remove</button>
                   </div>
-                ))}
+                </div>
               </div>
-            )}
-          </section>
+            ))
+          )}
         </div>
       </div>
       <Footer />
