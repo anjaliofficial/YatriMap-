@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
+import Header from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
-import "./Settings.css";
+import "../css/Settings.css";
 
 const Settings: React.FC = () => {
   const [settings, setSettings] = useState({
