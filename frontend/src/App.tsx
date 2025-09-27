@@ -10,6 +10,8 @@ const LoginPage = lazy(() => import("./public/LoginPage"));
 const ForgotPasswordPage = lazy(() => import("./public/ForgotPassword"));
 const Dashboard = lazy(() => import("./public/Dashboard"));
 const FavoritePlaces = lazy(() => import("./public/FavoritePlaces"));
+const AboutusPage = lazy(() => import("./public/Aboutuspage"));
+
 
 
 
@@ -48,6 +50,7 @@ const App: React.FC = () => {
             <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/favoriteplaces" element={<FavoritePlaces />} />
+            <Route path="/aboutuspage" element={<AboutusPage />} />
 
 
 
