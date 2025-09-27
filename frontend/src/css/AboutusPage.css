@@ -1,6 +1,6 @@
-/* ======================
-   About Page
-====================== */
+/* =========================
+   Page Layout
+========================= */
 .about-page {
   display: flex;
   flex-direction: column;
@@ -10,7 +10,9 @@
   background: #f9f9fb;
 }
 
-/* Hero Section */
+/* =========================
+   Hero Section
+========================= */
 .about-hero {
   background: linear-gradient(135deg, #1d3557, #457b9d);
   color: #fff;
@@ -18,12 +20,12 @@
   padding: 100px 20px 80px;
 }
 
-.about-hero h1 {
+.hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
 }
 
-.about-hero p {
+.hero-content p {
   margin-top: 15px;
   font-size: 1.1rem;
   max-width: 700px;
@@ -32,11 +34,34 @@
   line-height: 1.6;
 }
 
-/* Mission & Vision */
+/* =========================
+   Company Story
+========================= */
+.about-story {
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-story h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-story p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* =========================
+   Mission / Vision / Values
+========================= */
 .about-mission {
   display: flex;
   justify-content: center;
-  align-items: stretch;
   gap: 30px;
   padding: 60px 40px;
   flex-wrap: wrap;
@@ -44,7 +69,7 @@
 
 .mission-box {
   flex: 1;
-  min-width: 280px;
+  min-width: 260px;
   background: #fff;
   border-radius: 15px;
   padding: 30px;
@@ -57,7 +82,7 @@
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
 }
 
-.mission-box h2 {
+.mission-box h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #1d3557;
@@ -69,7 +94,47 @@
   line-height: 1.6;
 }
 
-/* Team Section */
+/* =========================
+   Why Choose Us
+========================= */
+.about-why {
+  text-align: center;
+  padding: 60px 40px;
+  background: #eef2f7;
+}
+
+.about-why h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.about-why ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-why li {
+  font-size: 1rem;
+  margin: 12px 0;
+  padding-left: 28px;
+  position: relative;
+  color: #333;
+}
+
+.about-why li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #2a9d8f;
+  font-weight: bold;
+}
+
+/* =========================
+   Team Section
+========================= */
 .about-team {
   padding: 60px 40px;
   text-align: center;
@@ -79,7 +144,6 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 40px;
-  color: #1d3557;
 }
 
 .team-grid {
@@ -112,10 +176,90 @@
 .team-card h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1d3557;
 }
 
 .team-card p {
   font-size: 0.95rem;
   color: #666;
+}
+
+/* =========================
+   Contact Section
+========================= */
+.about-contact {
+  padding: 60px 40px;
+  background: #f1f3f8;
+}
+
+.about-contact h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3,
+.contact-form h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  color: #1d3557;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-form button {
+  background: #1d3557;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #457b9d;
 }
