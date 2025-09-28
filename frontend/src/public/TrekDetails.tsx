@@ -194,16 +194,21 @@ const TrekDetailPage: React.FC = () => {
     <div className="trek-detail-page">
       <NavbarAfterLogin />
 
-      {/* Image Gallery */}
+      {/* Hero Image */}
+      <section className="trek-hero">
+        <img src={trek.images[0]} alt={trek.title} />
+        <div className="hero-title">{trek.title}</div>
+      </section>
+
+      {/* Image Gallery (remaining images) */}
       <section className="trek-image-gallery">
-        {trek.images.map((img, idx) => (
-          <img key={idx} src={img} alt={`${trek.title} ${idx + 1}`} />
+        {trek.images.slice(1).map((img, idx) => (
+          <img key={idx} src={img} alt={`${trek.title} ${idx + 2}`} />
         ))}
       </section>
 
       {/* Trek Details */}
       <main className="trek-detail-content">
-        <h1>{trek.title}</h1>
         <p>{trek.description}</p>
 
         <div className="trek-info-grid">

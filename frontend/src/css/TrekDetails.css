@@ -12,6 +12,35 @@
 }
 
 /* =========================
+   Hero Image (like Everest)
+========================= */
+.trek-hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.trek-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.trek-hero .hero-title {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/* =========================
    Image Gallery
 ========================= */
 .trek-image-gallery {
@@ -40,18 +69,17 @@
    Main Content
 ========================= */
 .trek-detail-content {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 30px 40px;
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  padding: 30px;
 }
 
 .trek-detail-content h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -68,7 +96,7 @@
 .trek-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 25px;
   margin-bottom: 30px;
 }
 
@@ -85,6 +113,19 @@
 }
 
 /* =========================
+   Map Section
+========================= */
+.trek-map {
+  margin-bottom: 30px;
+}
+
+.trek-map h3 {
+  margin-bottom: 15px;
+  color: #2a9d8f;
+  font-size: 1.2rem;
+}
+
+/* =========================
    Back Button
 ========================= */
 .trek-btn {
@@ -97,7 +138,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .trek-btn:hover {
@@ -108,20 +149,24 @@
    Responsive
 ========================= */
 @media (max-width: 768px) {
-  .trek-image-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    padding: 20px;
+  .trek-hero {
+    height: 300px;
   }
 
   .trek-detail-content {
     padding: 20px;
   }
 
-  .trek-info-grid {
-    grid-template-columns: 1fr;
+  .trek-detail-content h1 {
+    font-size: 1.8rem;
   }
 
-  .trek-detail-content h1 {
-    font-size: 1.6rem;
+  .trek-image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 20px;
+  }
+
+  .trek-info-grid {
+    grid-template-columns: 1fr;
   }
 }
