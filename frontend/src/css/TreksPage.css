@@ -1,48 +1,117 @@
-/* General Page Styles */
+/* =========================
+   General Page
+========================= */
 .treks-page {
   font-family: "Poppins", sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Hero Section */
+/* =========================
+   Hero Section
+========================= */
 .treks-hero {
-  height: 60vh;
+  height: 60vh; /* Reduced height */
   background: url("../assets/trek-hero.jpg") center/cover no-repeat;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   text-align: center;
-  color: white;
+  position: relative;
+  color: #fff;
+  border-bottom: 3px solid #0077b6; /* subtle accent */
 }
 
 .treks-hero::after {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,119,182,0.6), rgba(2,62,138,0.6));
 }
 
 .treks-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 700px;
   padding: 0 20px;
 }
 
 .treks-hero h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 15px;
+  color: #f0f8ff;
 }
 
 .treks-hero p {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #e0f0ff;
 }
 
-/* Treks Section */
+/* =========================
+   Search Bar
+========================= */
+.treks-search {
+  margin-top: 15px;
+}
+
+.treks-search input {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.treks-search input:focus {
+  box-shadow: 0 0 8px #0077b6;
+}
+
+/* =========================
+   Category Filters
+========================= */
+.treks-filters {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.treks-filters button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #0077b6;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.treks-filters button:hover {
+  background-color: #0077b6;
+  color: #fff;
+}
+
+.treks-filters button.active {
+  background-color: #0077b6;
+  color: #fff;
+}
+
+/* =========================
+   Treks Grid Section
+========================= */
 .treks-list {
   padding: 60px 10%;
   text-align: center;
@@ -54,7 +123,7 @@
   color: #222;
 }
 
-/* Trek Cards Grid */
+/* Grid Layout */
 .treks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -118,4 +187,37 @@
 
 .trek-btn:hover {
   background: #023e8a;
+}
+
+.no-results {
+  font-size: 1.1rem;
+  color: #888;
+  grid-column: 1/-1;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 1024px) {
+  .treks-page {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .treks-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .treks-hero p {
+    font-size: 1rem;
+  }
+
+  .treks-list {
+    padding: 40px 5%;
+  }
+
+  .treks-search input {
+    max-width: 100%;
+  }
 }

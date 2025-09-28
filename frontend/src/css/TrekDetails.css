@@ -11,7 +11,7 @@
 .trek-detail-hero {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   overflow: hidden;
 }
 
@@ -29,12 +29,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .trek-detail-hero .trek-detail-overlay h1 {
   color: #fff;
   font-size: 3rem;
-  text-align: center;
   padding: 0 20px;
 }
 
@@ -68,4 +68,15 @@
 
 .trek-detail-content .trek-btn:hover {
   background: #023e8a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trek-detail-hero .trek-detail-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .trek-detail-content {
+    padding: 40px 5%;
+  }
 }
