@@ -1,20 +1,20 @@
 /* =========================
-   General Reset
+   Page Reset
 ========================= */
 .treks-page {
+  font-family: "Poppins", sans-serif;
   background: #f1f3f6;
   color: #1d3557;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Poppins", sans-serif;
 }
 
 /* =========================
    Hero Section
 ========================= */
 .treks-hero {
-  height: 50vh;
+  height: 45vh;
   background: url("../assets/trek-hero.jpg") center/cover no-repeat;
   display: flex;
   flex-direction: column;
@@ -43,9 +43,7 @@
 .treks-hero h1 { font-size: 2.5rem; color: #f0f8ff; margin-bottom: 10px; }
 .treks-hero p { font-size: 1.1rem; color: #e0f0ff; margin-bottom: 15px; }
 
-/* =========================
-   Search & Filters
-========================= */
+/* Search & Filters */
 .treks-search input {
   padding: 12px 20px;
   width: 100%;
@@ -79,67 +77,100 @@
 .treks-filters button:hover { background: #1d3557; color: #fff; }
 
 /* =========================
-   Treks Grid
+   Treks/Hikes Grid
 ========================= */
-.treks-list { padding: 50px 8%; text-align: center; }
-.treks-list h2 { font-size: 2rem; margin-bottom: 40px; }
-
-.treks-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
-
-.trek-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.ai-treks-carousel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 per row */
+  gap: 25px;
+  padding: 30px 20px;
+  background: #e0f2f1;
+  border-radius: 15px;
 }
 
-.trek-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+.ai-trek-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: 0.3s;
+  padding: 20px;
+  min-height: 360px;
+}
 
-.trek-card img { width: 100%; height: 200px; object-fit: cover; }
+.ai-trek-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
 
-.trek-info { padding: 15px; text-align: left; }
+.ai-trek-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
 
-.trek-info h3 { margin-bottom: 8px; color: #1d3557; }
-.trek-info p { font-size: 0.95rem; color: #444; margin-bottom: 12px; }
-
-.trek-btn {
-  background: #1d3557;
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
+.card-content h3 {
+  font-size: 1.2rem;
   font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  text-align: center;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.adventure-actions {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn-small {
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  padding: 8px 0;
+  border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.trek-btn:hover { background: #2a9d8f; }
+.btn-small.view-route { background: #1d3557; color: #fff; }
+.btn-small.view-route:hover { background: #3a539b; }
 
+.btn-small.add-favorites { background: #fca311; color: #1d3557; }
+.btn-small.add-favorites:hover { background: #ffb703; }
+
+/* Adventure Type Badge */
 .adventure-type {
   position: absolute;
-  top: 12px; right: 12px;
+  top: 10px;
+  right: 10px;
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  text-transform: uppercase;
   color: #fff;
 }
 
 .adventure-type.trek { background: #1d3557; }
 .adventure-type.hike { background: #2a9d8f; }
 
-.no-results { grid-column: 1/-1; font-size: 1.1rem; color: #888; text-align: center; }
+/* No results */
+.no-results { font-size: 1.1rem; color: #888; text-align: center; width: 100%; }
 
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 768px) {
-  .treks-hero { height: 40vh; }
-  .treks-hero h1 { font-size: 2rem; }
-  .treks-hero p { font-size: 1rem; }
-  .treks-list { padding: 40px 5%; }
-  .treks-search input { max-width: 100%; }
-}
+/* Responsive */
+@media(max-width: 1200px) { .ai-treks-carousel { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width: 992px)  { .ai-treks-carousel { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 600px)  { .ai-treks-carousel { grid-template-columns: 1fr; } }
