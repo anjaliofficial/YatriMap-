@@ -27,7 +27,7 @@ import trek5 from "../assets/thorang.jpg";
 import trekMC1 from "../assets/maslanu2.jpg";
 import trekMC2 from "../assets/maslanu3.jpg";
 
-// Trek data
+// Trek data with extra details
 const treks = [
   {
     id: "everest-base-camp",
@@ -40,22 +40,25 @@ const treks = [
     roadConditions: "Mostly mountainous trails with stone paths, some steep sections.",
     alternativeRoutes: "Gokyo Lakes route, Three Passes Trek.",
     transport: "Accessible by jeep/bus to Lukla; flights available from Kathmandu.",
+    difficulty: "Challenging",
+    altitude: "5,364 m (Everest Base Camp)",
+    highlights: "Ama Dablam view, Sherpa culture, Tengboche Monastery",
     cost: {
       foreigner: {
         trekPackage: "$1200–$1500",
         permit: "$50–$60",
         guide: "$20/day",
-        accommodation: "$10–$20/night"
+        accommodation: "$10–$20/night",
       },
       citizen: {
         trekPackage: "NPR 60,000–90,000",
         permit: "NPR 2000",
         guide: "NPR 1500/day",
-        accommodation: "NPR 500–1000/night"
-      }
+        accommodation: "NPR 500–1000/night",
+      },
     },
     hotels: "Tea houses in villages; basic to moderate facilities.",
-    location: "27.9881,86.9250"
+    location: "27.9881,86.9250",
   },
   {
     id: "annapurna-circuit",
@@ -68,22 +71,25 @@ const treks = [
     roadConditions: "Well-trodden paths; some steep passes like Thorong La.",
     alternativeRoutes: "Short Annapurna Base Camp extension.",
     transport: "Bus to Besisahar or Pokhara; private jeeps optional.",
+    difficulty: "Moderate to Challenging",
+    altitude: "5,416 m (Thorong La Pass)",
+    highlights: "Diverse cultures, Thorong La, Machapuchare views",
     cost: {
       foreigner: {
         trekPackage: "$1100–$1400",
         permit: "$40–$50",
         guide: "$18/day",
-        accommodation: "$8–$15/night"
+        accommodation: "$8–$15/night",
       },
       citizen: {
         trekPackage: "NPR 50,000–80,000",
         permit: "NPR 1500",
         guide: "NPR 1200/day",
-        accommodation: "NPR 400–800/night"
-      }
+        accommodation: "NPR 400–800/night",
+      },
     },
     hotels: "Tea houses and lodges along route.",
-    location: "28.5565,83.8200"
+    location: "28.5565,83.8200",
   },
   {
     id: "poon-hill",
@@ -96,22 +102,25 @@ const treks = [
     roadConditions: "Moderate trail through forests and small villages.",
     alternativeRoutes: "Ghorepani–Tadapani loop.",
     transport: "Bus or jeep to Nayapul from Pokhara.",
+    difficulty: "Easy",
+    altitude: "3,210 m (Poon Hill)",
+    highlights: "Sunrise over Annapurna, Gurung villages, rhododendron forests",
     cost: {
       foreigner: {
         trekPackage: "$250–$400",
         permit: "$20–$25",
         guide: "$15/day",
-        accommodation: "$5–$10/night"
+        accommodation: "$5–$10/night",
       },
       citizen: {
         trekPackage: "NPR 12,000–18,000",
         permit: "NPR 500",
         guide: "NPR 1000/day",
-        accommodation: "NPR 300–600/night"
-      }
+        accommodation: "NPR 300–600/night",
+      },
     },
     hotels: "Tea houses and guesthouses.",
-    location: "28.3869,83.9112"
+    location: "28.3869,83.9112",
   },
   {
     id: "langtang-valley",
@@ -124,22 +133,25 @@ const treks = [
     roadConditions: "Moderate trails; some rocky paths and river crossings.",
     alternativeRoutes: "Langtang Gosaikunda loop.",
     transport: "Bus to Syabrubesi from Kathmandu.",
+    difficulty: "Moderate",
+    altitude: "4,984 m (Langtang Lirung)",
+    highlights: "Glaciers, yaks, Tibetan villages, Gosaikunda Lake",
     cost: {
       foreigner: {
         trekPackage: "$500–$700",
         permit: "$30–$40",
         guide: "$18/day",
-        accommodation: "$8–$15/night"
+        accommodation: "$8–$15/night",
       },
       citizen: {
         trekPackage: "NPR 25,000–35,000",
         permit: "NPR 1000",
         guide: "NPR 1200/day",
-        accommodation: "NPR 400–700/night"
-      }
+        accommodation: "NPR 400–700/night",
+      },
     },
     hotels: "Tea houses in villages; basic facilities.",
-    location: "28.1970,85.4885"
+    location: "28.1970,85.4885",
   },
   {
     id: "manaslu-circuit",
@@ -152,23 +164,26 @@ const treks = [
     roadConditions: "Remote trails; steep passes like Larkya La (5160 m).",
     alternativeRoutes: "Manaslu–Annapurna link route.",
     transport: "Bus or jeep to Arughat from Kathmandu.",
+    difficulty: "Challenging",
+    altitude: "5,160 m (Larkya La Pass)",
+    highlights: "Traditional villages, pristine landscapes, high passes",
     cost: {
       foreigner: {
         trekPackage: "$1200–$1500",
         permit: "$50–$60",
         guide: "$20/day",
-        accommodation: "$10–$20/night"
+        accommodation: "$10–$20/night",
       },
       citizen: {
         trekPackage: "NPR 60,000–90,000",
         permit: "NPR 2000",
         guide: "NPR 1500/day",
-        accommodation: "NPR 500–1000/night"
-      }
+        accommodation: "NPR 500–1000/night",
+      },
     },
     hotels: "Tea houses along route; basic amenities.",
-    location: "28.5365,84.5350"
-  }
+    location: "28.5365,84.5350",
+  },
 ];
 
 const TrekDetailPage: React.FC = () => {
@@ -233,6 +248,18 @@ const TrekDetailPage: React.FC = () => {
             <p>{trek.transport}</p>
           </div>
           <div>
+            <h3>Difficulty</h3>
+            <p>{trek.difficulty}</p>
+          </div>
+          <div>
+            <h3>Altitude</h3>
+            <p>{trek.altitude}</p>
+          </div>
+          <div>
+            <h3>Highlights</h3>
+            <p>{trek.highlights}</p>
+          </div>
+          <div>
             <h3>Cost Details</h3>
             <p>
               <strong>Foreigner:</strong> <br />
@@ -260,7 +287,7 @@ const TrekDetailPage: React.FC = () => {
             title="Trek Location"
             src={`https://www.google.com/maps?q=${trek.location}&hl=es;z=12&output=embed`}
             width="100%"
-            height="350"
+            height="400"
             style={{ border: 0, borderRadius: "12px" }}
             allowFullScreen
             loading="lazy"
