@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
@@ -25,6 +25,19 @@ const treks = [
 const TreksPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
+  const [favMessage, setFavMessage] = useState("");
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  // Load favorites from localStorage
+  useEffect(() => {
+    const storedFavs = localStorage.getItem("favorites");
+    if (storedFavs) setFavorites(JSON.parse(storedFavs));
+  }, []);
+
+  // Save favorites to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   // Filter treks based on search term & category
   const filteredTreks = treks.filter(
@@ -33,6 +46,16 @@ const TreksPage: React.FC = () => {
       (trek.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         trek.description.toLowerCase().includes(searchTerm.toLowerCase()))
   );
+
+  const handleAddFavorite = (id: string, title: string) => {
+    if (!favorites.includes(id)) {
+      setFavorites([...favorites, id]);
+      setFavMessage(`${title} added to favorites!`);
+    } else {
+      setFavMessage(`${title} is already in favorites!`);
+    }
+    setTimeout(() => setFavMessage(""), 3000);
+  };
 
   return (
     <div className="treks-page">
@@ -63,6 +86,9 @@ const TreksPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Favorite Message */}
+      {favMessage && <div className="fav-message">{favMessage}</div>}
+
       {/* Treks/Hikes Grid */}
       <section className="ai-treks-carousel">
         {filteredTreks.length > 0 ? filteredTreks.map((trek) => (
@@ -72,10 +98,13 @@ const TreksPage: React.FC = () => {
             <div className="card-content">
               <h3>{trek.title}</h3>
               <p>{trek.description}</p>
+              <p className="details">{trek.details}</p>
             </div>
             <div className="adventure-actions">
               <Link to={`/treks/${trek.id}`}><button className="btn-small view-route">View Details</button></Link>
-              <button className="btn-small add-favorites">Add to Favorites</button>
+              <button className="btn-small add-favorites" onClick={() => handleAddFavorite(trek.id, trek.title)}>
+                {favorites.includes(trek.id) ? "In Favorites" : "Add to Favorites"}
+              </button>
             </div>
           </div>
         )) : (

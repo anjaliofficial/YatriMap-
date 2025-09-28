@@ -1,176 +1,200 @@
 /* =========================
-   Page Reset
+   General Page
 ========================= */
 .treks-page {
   font-family: "Poppins", sans-serif;
   background: #f1f3f6;
   color: #1d3557;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
 }
 
 /* =========================
    Hero Section
 ========================= */
 .treks-hero {
-  height: 45vh;
-  background: url("../assets/trek-hero.jpg") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/hero-bg.jpg') center/cover no-repeat;
+  padding: 80px 20px 40px 20px;
   text-align: center;
-  position: relative;
-  border-bottom: 3px solid #1d3557;
+  color: #fff;
 }
 
-.treks-hero::after {
-  content: "";
-  position: absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: linear-gradient(135deg,#1d3557cc,#457b9dcc);
+.treks-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
-.treks-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 0 20px;
+.treks-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
 }
 
-.treks-hero h1 { font-size: 2.5rem; color: #f0f8ff; margin-bottom: 10px; }
-.treks-hero p { font-size: 1.1rem; color: #e0f0ff; margin-bottom: 15px; }
-
-/* Search & Filters */
 .treks-search input {
   padding: 12px 20px;
-  width: 100%;
-  max-width: 400px;
   border-radius: 25px;
   border: none;
-  outline: none;
+  width: 300px;
+  max-width: 80%;
   font-size: 1rem;
 }
 
 .treks-filters {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .treks-filters button {
-  padding: 8px 18px;
-  border-radius: 25px;
+  margin: 0 8px;
+  padding: 8px 20px;
+  border-radius: 20px;
   border: none;
-  font-weight: 600;
+  cursor: pointer;
   background: #fff;
   color: #1d3557;
-  cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.treks-filters button.active,
-.treks-filters button:hover { background: #1d3557; color: #fff; }
+.treks-filters button.active, .treks-filters button:hover {
+  background: #1d3557;
+  color: #fff;
+}
 
 /* =========================
-   Treks/Hikes Grid
+   Treks/Hikes Cards
 ========================= */
 .ai-treks-carousel {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 per row */
-  gap: 25px;
-  padding: 30px 20px;
-  background: #e0f2f1;
-  border-radius: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 30px 50px;
 }
 
 .ai-trek-card {
   background: #fff;
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: 0.3s;
-  padding: 20px;
-  min-height: 360px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .ai-trek-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .ai-trek-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1;
 }
 
 .card-content h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
 }
 
 .card-content p {
   font-size: 0.95rem;
-  text-align: center;
-  color: #555;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
+.card-content .details {
+  font-weight: 600;
+  color: #2a9d8f;
+}
+
+/* =========================
+   Adventure Actions
+========================= */
 .adventure-actions {
   display: flex;
-  gap: 8px;
-  flex-direction: column;
-  width: 100%;
+  justify-content: space-between;
+  padding: 10px 20px 20px 20px;
 }
 
 .btn-small {
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 8px 15px;
   border: none;
-  padding: 8px 0;
-  border-radius: 6px;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-.btn-small.view-route { background: #1d3557; color: #fff; }
-.btn-small.view-route:hover { background: #3a539b; }
-
-.btn-small.add-favorites { background: #fca311; color: #1d3557; }
-.btn-small.add-favorites:hover { background: #ffb703; }
-
-/* Adventure Type Badge */
-.adventure-type {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
+.view-route {
+  background: #1d3557;
   color: #fff;
 }
 
-.adventure-type.trek { background: #1d3557; }
-.adventure-type.hike { background: #2a9d8f; }
+.view-route:hover {
+  background: #3a539b;
+}
 
-/* No results */
-.no-results { font-size: 1.1rem; color: #888; text-align: center; width: 100%; }
+.add-favorites {
+  background: #2a9d8f;
+  color: #fff;
+}
 
-/* Responsive */
-@media(max-width: 1200px) { .ai-treks-carousel { grid-template-columns: repeat(3, 1fr); } }
-@media(max-width: 992px)  { .ai-treks-carousel { grid-template-columns: repeat(2, 1fr); } }
-@media(max-width: 600px)  { .ai-treks-carousel { grid-template-columns: 1fr; } }
+.add-favorites:hover {
+  background: #21867a;
+}
+
+/* =========================
+   Favorite Message
+========================= */
+.fav-message {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1d3557;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+/* =========================
+   No Results
+========================= */
+.no-results {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  color: #555;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
+  .ai-treks-carousel {
+    padding: 20px;
+  }
+
+  .treks-hero h1 {
+    font-size: 2rem;
+  }
+
+  .treks-hero p {
+    font-size: 1rem;
+  }
+}
