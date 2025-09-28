@@ -7,7 +7,7 @@ import "../css/TreksPage.css";
 // Images
 import trek1 from "../assets/pachpokhari.jpg";
 import trek2 from "../assets/Annapurna-Sunrise.jpg";
-import trek3 from "../assets/makalu.jpg";
+import trek3 from "../assets/maslanu1.jpg";
 import trek4 from "../assets/timbung pokhari.jpg";
 import trek5 from "../assets/thorang.jpg";
 import trek6 from "../assets/Yama yangri.jpg"; // new hike image
