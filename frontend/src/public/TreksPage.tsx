@@ -19,7 +19,7 @@ const treks = [
     description: "A journey to the base of the world’s highest mountain – an unforgettable adventure.",
     image: trek1,
     category: "trek",
-    details: "Everest Base Camp trek takes you through Sherpa villages, monasteries, and breathtaking views of the Himalayas. It’s a lifetime experience for adventure seekers. Duration: 12–14 days. Best time: March–May & September–November."
+    details: "Everest Base Camp trek takes you through Sherpa villages, monasteries, and breathtaking views of the Himalayas. Duration: 12–14 days. Best time: March–May & September–November."
   },
   {
     id: "annapurna-circuit",
@@ -27,7 +27,7 @@ const treks = [
     description: "Explore diverse landscapes, from subtropical forests to alpine peaks.",
     image: trek2,
     category: "trek",
-    details: "The Annapurna Circuit is one of the most famous treks in the world. Cross Thorong La Pass and enjoy stunning Himalayan panoramas. Duration: 15–20 days. Best time: March–May & September–November."
+    details: "The Annapurna Circuit is one of the most famous treks in the world. Cross Thorong La Pass and enjoy stunning Himalayan panoramas. Duration: 15–20 days."
   },
   {
     id: "poon-hill",
@@ -43,7 +43,7 @@ const treks = [
     description: "A trek combining rich culture, wildlife, and stunning Himalayan views.",
     image: trek4,
     category: "trek",
-    details: "Langtang Valley Trek explores Langtang National Park. See glaciers, yak pastures, and Tibetan-style villages. Duration: 7–10 days. Best time: March–May & September–November."
+    details: "Langtang Valley Trek explores Langtang National Park. See glaciers, yak pastures, and Tibetan-style villages. Duration: 7–10 days."
   },
   {
     id: "manaslu-circuit",
@@ -51,7 +51,7 @@ const treks = [
     description: "A remote and less-crowded trek around the world’s eighth highest mountain.",
     image: trek5,
     category: "trek",
-    details: "Manaslu Circuit Trek offers pristine landscapes, traditional villages, and challenging trails. Duration: 14–18 days. Best time: March–May & September–November."
+    details: "Manaslu Circuit Trek offers pristine landscapes, traditional villages, and challenging trails. Duration: 14–18 days."
   }
 ];
 
@@ -59,7 +59,6 @@ const TreksPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
 
-  // Filter treks based on search term and category
   const filteredTreks = treks.filter(
     (trek) =>
       (categoryFilter === "all" || trek.category === categoryFilter) &&
@@ -103,6 +102,7 @@ const TreksPage: React.FC = () => {
           {filteredTreks.length > 0 ? (
             filteredTreks.map((trek) => (
               <div className="trek-card" key={trek.id}>
+                <span className={`adventure-type ${trek.category}`}>{trek.category}</span>
                 <img src={trek.image} alt={trek.title} />
                 <div className="trek-info">
                   <h3>{trek.title}</h3>
