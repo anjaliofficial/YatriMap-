@@ -93,7 +93,9 @@ const TreksPage: React.FC = () => {
       <section className="ai-treks-carousel">
         {filteredTreks.length > 0 ? filteredTreks.map((trek) => (
           <div className="ai-trek-card" key={trek.id}>
-            <span className={`adventure-type ${trek.category}`}>{trek.category}</span>
+            <span className={`adventure-type ${trek.category}`}>
+              {trek.category === "trek" ? "Trek" : "Hike"}
+            </span>
             <img src={trek.image} alt={trek.title} className="ai-trek-image" />
             <div className="card-content">
               <h3>{trek.title}</h3>

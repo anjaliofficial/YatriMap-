@@ -7,6 +7,7 @@
   color: #1d3557;
   min-height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
 /* =========================
@@ -67,6 +68,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 30px 50px;
+  position: relative;
 }
 
 .ai-trek-card {
@@ -77,6 +79,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 }
 
 .ai-trek-card:hover {
@@ -108,6 +111,30 @@
 .card-content .details {
   font-weight: 600;
   color: #2a9d8f;
+}
+
+/* =========================
+   Adventure Type Badge
+========================= */
+.adventure-type {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.adventure-type.trek {
+  background-color: #e76f51; /* reddish */
+}
+
+.adventure-type.hike {
+  background-color: #2a9d8f; /* greenish */
 }
 
 /* =========================
