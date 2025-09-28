@@ -13,6 +13,8 @@ const AboutusPage = lazy(() => import("./public/Aboutuspage"));
 const Notifications = lazy(() => import("./public/Notifications"));
 const Settings = lazy(() => import("./public/Settings"));
 const TreksPage = lazy(() => import("./public/TreksPage")); // 🔥 Add Treks
+const TrekDetailPage = lazy(() => import("./public/TrekDetails")); // 🔥 Add Treks
+
 
 // Error Boundary Component
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -52,6 +54,8 @@ const App: React.FC = () => {
             <Route path="/treks" element={<TreksPage />} />   {/* 🔥 Added Treks Route */}
             <Route path="/notifications" element={<Notifications/>} />
             <Route path="/settings" element={<Settings/>} />
+            <Route path="/treks/:id" element={<TrekDetailPage />} />
+
           </Routes>
         </ErrorBoundary>
       </Suspense>

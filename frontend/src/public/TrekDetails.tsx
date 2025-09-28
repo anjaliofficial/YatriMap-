@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
+import '../css/TrekDetails.css'
 
 // Same trek data used in TreksPage
 const treks = [
