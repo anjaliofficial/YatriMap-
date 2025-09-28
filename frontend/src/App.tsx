@@ -1,9 +1,8 @@
-// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense, Component } from "react";
 import type { ReactNode } from "react";
 
-// Lazy load LandingPage from src/pages
+// Lazy load pages
 const LandingPage = lazy(() => import("./public/LandingPage"));
 const Signup = lazy(() => import("./public/Signup"));
 const LoginPage = lazy(() => import("./public/LoginPage"));
@@ -13,11 +12,7 @@ const FavoritePlaces = lazy(() => import("./public/FavoritePlaces"));
 const AboutusPage = lazy(() => import("./public/Aboutuspage"));
 const Notifications = lazy(() => import("./public/Notifications"));
 const Settings = lazy(() => import("./public/Settings"));
-
-
-
-
-
+const TreksPage = lazy(() => import("./public/TreksPage")); // 🔥 Add Treks
 
 // Error Boundary Component
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -54,12 +49,9 @@ const App: React.FC = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/favoriteplaces" element={<FavoritePlaces />} />
             <Route path="/aboutuspage" element={<AboutusPage />} />
+            <Route path="/treks" element={<TreksPage />} />   {/* 🔥 Added Treks Route */}
             <Route path="/notifications" element={<Notifications/>} />
             <Route path="/settings" element={<Settings/>} />
-
-
-
-            {/* Add more routes here later */}
           </Routes>
         </ErrorBoundary>
       </Suspense>
