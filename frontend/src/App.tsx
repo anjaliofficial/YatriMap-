@@ -14,6 +14,8 @@ const Notifications = lazy(() => import("./public/Notifications"));
 const Settings = lazy(() => import("./public/Settings"));
 const TreksPage = lazy(() => import("./public/TreksPage"));
 const TrekDetailPage = lazy(() => import("./public/TrekDetails"));
+const GPXUpload = lazy(() => import("./public/GPXUpload"));
+
 
 // Error Boundary Component
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -65,6 +67,8 @@ const App: React.FC = () => {
             <Route path="/settings" element={<Settings />} />
             {/* NOTE: I assumed '/profile' from the Navbar was meant to go to Dashboard or a new route. I'll default it to Dashboard for simplicity. */}
             <Route path="/profile" element={<Dashboard />} /> 
+            <Route path="/gpxupload" element={<Dashboard />} /> 
+
           </Routes>
         </ErrorBoundary>
       </Suspense>
