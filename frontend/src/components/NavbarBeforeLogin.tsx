@@ -17,8 +17,7 @@ const NavbarBeforeLogin: React.FC = () => {
         <ul className="navbar-links">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/treks">Treks</Link></li>
-          <li><Link to="/aboutuspage">About</Link></li>
-          {/* Removed Contact */}
+          <li><Link to="/aboutuspage">About</Link></li> {/* Corrected path */}
         </ul>
 
         <div className="navbar-auth">
