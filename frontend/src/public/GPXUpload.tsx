@@ -1,11 +1,11 @@
-// src/components/Trek/GPXUpload.tsx
 import React, { useState } from "react";
 import Map, { Source, Layer } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { parse } from "togeojson";
-import { DOMParser } from "xmldom";
+import * as toGeoJSON from "togeojson";
 import axios from "axios";
 import * as turf from "@turf/turf";
+import "../css/GPXUpload.css";
+
 
 const MAPBOX_TOKEN = "YOUR_MAPBOX_ACCESS_TOKEN";
 const OPENWEATHER_KEY = "YOUR_OPENWEATHER_API_KEY"; // <-- add your API key
