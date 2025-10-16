@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { GiMountains, GiHiking, GiTrophy } from "react-icons/gi";
 import NavbarAfterLogin from "../components/NavbarAfterLogin";
 import Footer from "../components/Footer";
 import "../css/Dashboard.css";
+// Assuming these assets exist or are defined:
 import ghorepaniImg from "../assets/ghorepani.jpg";
 import lodgeImg from "../assets/lodge.jpg";
 import mountainImg from "../assets/mountain.jpg";
 
-const Dashboard = () => {
-  const [activeAdventure, setActiveAdventure] = useState<string | null>(null);
+const Dashboard: React.FC = () => {
+  const navigate = useNavigate(); // Initialize navigate hook
+
+  // Helper function to link adventure names to specific trek detail page
+  const viewRoute = (name: string) => {
+    // Simple slug conversion (e.g., "Poon Hill" -> "poon-hill")
+    const slug = name.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/treks/${slug}`);
+  };
 
   const adventures = [
     { name: "Poon Hill", type: "Trek", difficulty: "Easy", duration: "3 days" },
@@ -52,7 +61,8 @@ const Dashboard = () => {
               <h1>Welcome Back, John!</h1>
               <p>Plan your next adventure or check your stats</p>
               <div className="hero-actions">
-                <button>Start New Trek</button>
+                {/* Linked to the Treks listing page */}
+                <button onClick={() => navigate("/treks")}>Start New Trek</button>
                 <button>Upload GPX</button>
                 <button>View Stats</button>
                 <button>AI Recommendations</button>
@@ -81,7 +91,12 @@ const Dashboard = () => {
                       <p className="duration">{adv.duration}</p>
                     </div>
                     <div className="adventure-actions">
-                      <button className="btn-small view-route">View Route</button>
+                      <button 
+                        className="btn-small view-route"
+                        onClick={() => viewRoute(adv.name)} // Use the new handler
+                      >
+                        View Route
+                      </button>
                       <button className="btn-small add-favorites">Add to Favorites</button>
                       <button className="btn-small start-hike-log">Start Hike Log</button>
                     </div>
@@ -139,7 +154,7 @@ const Dashboard = () => {
             {/* Alerts */}
             <section className="notifications-section">
               <h2>Safety & Alerts</h2>
-              <ul>
+              <ul onClick={() => navigate("/notifications")}> {/* Added click handler */}
                 {notifications.map((note, idx) => (
                   <li key={idx}>{note}</li>
                 ))}
@@ -152,7 +167,7 @@ const Dashboard = () => {
               <div className="quick-actions">
                 <button>Upload New Hike</button>
                 <button>Start New Trek Log</button>
-                <button>Filter Treks / Favorites</button>
+                <button onClick={() => navigate("/favoriteplaces")}>Filter Treks / Favorites</button> {/* Linked */}
                 <button>Share Treks</button>
               </div>
             </section>
