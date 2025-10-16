@@ -1,0 +1,126 @@
+/* =========================
+   GPX Upload Page Styles
+========================= */
+
+.gpx-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1b263b, #0d1b2a);
+  color: #e0e1dd;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+}
+
+.gpx-upload-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.gpx-upload-card h2 {
+  color: #a8dadc;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.gpx-upload-card p {
+  color: #cfd8dc;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+/* Upload Box */
+.upload-box {
+  border: 2px dashed #457b9d;
+  border-radius: 12px;
+  padding: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #8ecae6;
+}
+
+.upload-box:hover {
+  background-color: rgba(69, 123, 157, 0.1);
+  transform: scale(1.02);
+}
+
+/* File Input */
+input[type="file"] {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: #a8dadc;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Progress Bar */
+.progress-bar {
+  margin-top: 20px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #06d6a0, #118ab2);
+  transition: width 0.4s ease;
+}
+
+/* Button */
+.upload-btn {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #06d6a0, #118ab2);
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #06d6a0;
+}
+
+/* Preview Map */
+.map-preview {
+  margin-top: 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
