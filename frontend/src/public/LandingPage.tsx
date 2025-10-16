@@ -1,18 +1,20 @@
+// src/public/LandingPage.tsx
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "../css/LandingPage.css";
+
+// Assets
 import mountainBg from "../assets/mountain_bg.jpg";
-
-import NavbarBeforeLogin from "../components/NavbarBeforeLogin";
-import Footer from "../components/Footer";
-
-// Import images correctly from src/assets
 import khopraImg from "../assets/khopra.jpg";
 import waterImg from "../assets/mardihimal.jpg";
 import poonhillImg from "../assets/Poonhill.jpg";
 import testimonial1 from "../assets/testimonial1.jpg";
 import testimonial2 from "../assets/testimonial2.jpg";
 import testimonial3 from "../assets/testimonial3.jpg";
+
+// Components
+import NavbarBeforeLogin from "../components/NavbarBeforeLogin";
+import Footer from "../components/Footer";
 
 // Trek Data
 const treksData = [
@@ -58,7 +60,7 @@ const fadeInUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
-// Trek Card
+// Trek Card Component
 const TrekCard: React.FC<{ trek: any; index: number }> = ({ trek, index }) => (
   <motion.div
     variants={fadeInUp}
@@ -77,7 +79,7 @@ const TrekCard: React.FC<{ trek: any; index: number }> = ({ trek, index }) => (
   </motion.div>
 );
 
-// Testimonial Card
+// Testimonial Card Component
 const TestimonialCard: React.FC<{ testimonial: any; index: number }> = ({
   testimonial,
   index,
@@ -96,7 +98,7 @@ const TestimonialCard: React.FC<{ testimonial: any; index: number }> = ({
   </motion.div>
 );
 
-// Hero Section
+// Hero Section Component
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, -100]);
@@ -142,7 +144,7 @@ const Hero: React.FC = () => {
   );
 };
 
-// Landing Page
+// Landing Page Component
 const LandingPage: React.FC = () => {
   return (
     <div className="landing-container">
@@ -190,7 +192,7 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Call to Action */}
       <section id="cta" className="cta-section">
         <h2>Ready for Your Next Adventure?</h2>
         <p>
