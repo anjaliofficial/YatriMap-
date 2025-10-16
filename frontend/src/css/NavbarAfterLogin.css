@@ -57,23 +57,24 @@
 .navbar-icons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
+  margin-right: 30px;
 }
 .navbar-icons .icon {
-  font-size: 2rem; /* increased size */
+  font-size: 1rem; /* increased size */
   cursor: pointer;
   transition: color 0.3s, transform 0.2s;
 }
 .navbar-icons .icon:hover {
   color: #fca311;
-  transform: scale(1.25);
+  transform: scale(1.0);
 }
 
 /* Logout icon */
 .navbar-icons .logout {
   color: #e63946;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 100;
   white-space: nowrap;
 }
 .navbar-icons .logout:hover {
