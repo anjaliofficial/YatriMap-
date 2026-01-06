@@ -67,7 +67,7 @@ const App: React.FC = () => {
             <Route path="/settings" element={<Settings />} />
             {/* NOTE: I assumed '/profile' from the Navbar was meant to go to Dashboard or a new route. I'll default it to Dashboard for simplicity. */}
             <Route path="/profile" element={<Dashboard />} /> 
-            <Route path="/gpxupload" element={<Dashboard />} /> 
+            <Route path="/gpxupload" element={<GPXUpload />} />
 
           </Routes>
         </ErrorBoundary>
